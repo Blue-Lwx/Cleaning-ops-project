@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CleanOps Academy | Simulation Product</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed": "#5ffbd6",
+                      "surface-dim": "#08132a",
+                      "surface": "#08132a",
+                      "on-primary-container": "#74829d",
+                      "primary": "#b9c7e4",
+                      "secondary-container": "#374767",
+                      "on-background": "#d9e2ff",
+                      "on-surface-variant": "#c5c6cd",
+                      "surface-container-highest": "#2a344d",
+                      "outline-variant": "#44474d",
+                      "on-surface": "#d9e2ff",
+                      "tertiary": "#38debb",
+                      "error-container": "#93000a",
+                      "background": "#08132a",
+                      "on-secondary": "#20304f",
+                      "outline": "#8f9097",
+                      "on-secondary-fixed": "#091b39",
+                      "on-primary-fixed": "#0d1c32",
+                      "primary-fixed-dim": "#b9c7e4",
+                      "secondary": "#b6c6ed",
+                      "tertiary-container": "#001e17",
+                      "inverse-surface": "#d9e2ff",
+                      "on-tertiary-fixed": "#002019",
+                      "on-tertiary-container": "#00937a",
+                      "inverse-on-surface": "#263049",
+                      "error": "#ffb4ab",
+                      "surface-tint": "#b9c7e4",
+                      "on-secondary-container": "#a5b5db",
+                      "surface-container-lowest": "#030d25",
+                      "on-tertiary": "#00382d",
+                      "on-secondary-fixed-variant": "#374767",
+                      "on-primary-fixed-variant": "#39475f",
+                      "secondary-fixed-dim": "#b6c6ed",
+                      "primary-container": "#0a192f",
+                      "on-error": "#690005",
+                      "on-error-container": "#ffdad6",
+                      "tertiary-fixed-dim": "#38debb",
+                      "primary-fixed": "#d6e3ff",
+                      "on-tertiary-fixed-variant": "#005142",
+                      "surface-container-high": "#1f2942",
+                      "surface-container": "#151f37",
+                      "surface-bright": "#2f3952",
+                      "surface-container-low": "#101b33",
+                      "inverse-primary": "#515f78",
+                      "secondary-fixed": "#d8e2ff",
+                      "surface-variant": "#2a344d",
+                      "on-primary": "#233148"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "base": "8px",
+                      "gutter": "16px",
+                      "desktop-max-width": "1440px",
+                      "container-padding": "24px"
+              },
+              "fontFamily": {
+                      "label-sm": ["Inter"],
+                      "label-md": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "display-lg-mobile": ["Inter"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #08132a;
+            color: #d9e2ff;
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-card {
+            background: rgba(17, 34, 64, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(35, 53, 84, 0.5);
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .simulation-glow {
+            box-shadow: 0 0 30px rgba(100, 255, 218, 0.1);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="bg-surface-container-low dark:bg-surface-container-low shadow-sm fixed w-full top-0 z-50">
+<nav class="flex justify-between items-center w-full px-gutter max-w-desktop-max-width mx-auto h-20">
+<div class="font-headline-md text-headline-md font-bold text-on-surface dark:text-on-surface">
+                CleanOps Academy
+            </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-tertiary-fixed transition-colors duration-200 font-label-md text-label-md" href="#">Modules</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-tertiary-fixed transition-colors duration-200 font-label-md text-label-md" href="#">Curriculum</a>
+<a class="text-tertiary font-bold border-b-2 border-tertiary pb-1 font-label-md text-label-md" href="#">Pilot Program</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-tertiary-fixed transition-colors duration-200 font-label-md text-label-md" href="#">About Us</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden lg:block text-on-surface font-label-md text-label-md hover:text-tertiary transition-colors">Login</button>
+<button class="bg-tertiary text-on-tertiary px-6 py-2.5 rounded-lg font-label-md text-label-md font-bold hover:bg-tertiary-fixed transition-all active:scale-95">
+                    Request a Demo
+                </button>
+</div>
+</nav>
+</header>
+<main class="pt-28 pb-20">
+<!-- Hero Section -->
+<section class="max-w-desktop-max-width mx-auto px-gutter mb-20">
+<div class="grid lg:grid-cols-2 gap-16 items-center">
+<div>
+<span class="inline-block px-3 py-1 bg-tertiary/10 text-tertiary rounded-full font-label-sm text-label-sm mb-6">NEXT-GEN CLEANROOM TRAINING</span>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-6 leading-tight">Master Complex Operations in <span class="text-tertiary">Zero-Risk</span> Simulations.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl">CleanOps Academy delivers a high-fidelity virtual environment where operators learn critical decontamination and sterilization protocols without risking laboratory integrity.</p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-tertiary text-on-tertiary px-8 py-4 rounded-lg font-label-md text-label-md font-bold hover:bg-tertiary-fixed transition-all flex items-center gap-2">
+<span class="material-symbols-outlined">videogame_asset</span>
+                            Enter Simulation
+                        </button>
+<button class="border border-outline-variant text-on-surface px-8 py-4 rounded-lg font-label-md text-label-md font-bold hover:bg-surface-bright transition-all">
+                            View Modules
+                        </button>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-tertiary to-primary opacity-20 blur-2xl group-hover:opacity-30 transition-opacity"></div>
+<div class="relative glass-card rounded-2xl overflow-hidden shadow-2xl">
+<img alt="Simulation HUD" class="w-full h-auto" data-alt="A futuristic laboratory training simulation screen displaying a 3D medical cleanroom environment with interactive equipment overlays. The aesthetic is high-tech and professional, dominated by deep navy blues and glowing emerald green UI elements. Crisp data visualizations and floating HUD elements indicate procedural progress. The lighting is sterile and precise, emphasizing technological sophistication." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqrvr1ASg4rkoS28Mf_Y1E3vazhQUUmkxU2N3OOVFzRMmItycG2iZ0DsX1oKMC53bjxySPCoQaM3Z5g_vrqo9CyIruvDyaeZzpw8vnvo8W_uxSZV5UJNj8mZ8dU5M_VVYLesxT9TKyUNLRWY7j2eTembZsM4kFCM2LYdG3mOr4Obd-GxeMOBCT1uAkgzlp-jYTX0Ns-_Iq3yCnpvzLN5nHPwbeHhHegDeDlbX2eDuabK5YnbDMnYHqf5txiIgclzoHXwAGWeq3PGgn"/>
+<div class="absolute bottom-6 left-6 right-6 flex justify-between items-center glass-card p-4 rounded-xl">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-tertiary/20 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" data-icon="sensors">sensors</span>
+</div>
+<div>
+<p class="text-xs text-on-surface-variant">Live Fidelity</p>
+<p class="text-sm font-bold text-on-surface">99.8% Sync Rate</p>
+</div>
+</div>
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-secondary-container"></div>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-primary"></div>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-tertiary flex items-center justify-center text-[10px] text-on-tertiary font-bold">+12</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Simulation Engine Bento Grid -->
+<section class="max-w-desktop-max-width mx-auto px-gutter mb-32">
+<div class="flex flex-col items-center text-center mb-16">
+<h2 class="font-headline-md text-headline-md mb-4">The Simulation Engine</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">A dual-mode visualization stack designed for rapid conceptual learning and deep spatial mastery.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+<div class="md:col-span-2 lg:col-span-2 glass-card p-8 rounded-2xl border-l-4 border-tertiary">
+<span class="material-symbols-outlined text-4xl text-tertiary mb-6" data-icon="view_in_ar">view_in_ar</span>
+<h3 class="font-headline-md text-headline-md mb-4">High-Fidelity 3D Assets</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Photorealistic models of autoclaves, biosafety cabinets, and HVAC systems. Every valve, switch, and indicator behaves exactly as it does in the real world.</p>
+<div class="h-40 rounded-xl bg-surface-container-highest overflow-hidden relative">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
+<img alt="3D Model" class="w-full h-full object-cover opacity-50" data-alt="Detailed 3D macro shot of industrial cleanroom machinery with brushed steel textures and glowing status indicators. The lighting is dramatic and moody, with deep blue shadows and sharp cyan highlights on the edges. The composition is focused and precise, showcasing the intricate detail of the digital training assets." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbz4sUvuub65sCQrQ-s9D2qaAeRXyyH_NRjnMe5pgm4FQKz0AFZlYTR8SAxL3oBU3GPMUHiy8moVmjO1xfQ0D9nqxHKQPWbQ4Rn66pKxKP5B7pKUXcoAkToH-HPcPp73KxNvaqzixN-w7RC72OqxgSGcIiMA9VUtpawwRREKYVJbwvbPWC6R1cGcWDJ89_dxlUwkEQyFN7ggKR0UYDcTMeWPPkfBUfmwSCA6aCNe2c0BrPKgiDXzKMFVRTIo3jfZzrHYIP4HYwb_hc"/>
+</div>
+</div>
+<div class="glass-card p-8 rounded-2xl flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-4xl text-primary mb-6" data-icon="schema">schema</span>
+<h3 class="font-headline-md text-headline-md mb-4">2D Flow Mapping</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Top-down schematic views for learning facility layouts and traffic patterns.</p>
+</div>
+<div class="pt-6 border-t border-outline-variant mt-6">
+<div class="flex items-center justify-between text-sm">
+<span>Spatial Accuracy</span>
+<span class="text-tertiary">±0.5mm</span>
+</div>
+</div>
+</div>
+<div class="glass-card p-8 rounded-2xl bg-gradient-to-br from-secondary-container to-surface-container-high border-none">
+<span class="material-symbols-outlined text-4xl text-white mb-6" data-icon="bolt">bolt</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Low Latency</h3>
+<p class="font-body-md text-body-md text-on-secondary-container">Optimized for browser-based access with zero plugin requirements. Instant loading of assets.</p>
+</div>
+<div class="lg:col-span-2 glass-card rounded-2xl overflow-hidden flex flex-col md:flex-row">
+<div class="p-8 flex-1">
+<h3 class="font-headline-md text-headline-md mb-4">Physics-Based Interaction</h3>
+<ul class="space-y-3">
+<li class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="check_circle">check_circle</span>
+                                Fluid spill dynamics
+                            </li>
+<li class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="check_circle">check_circle</span>
+                                Gas diffusion modeling
+                            </li>
+<li class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="check_circle">check_circle</span>
+                                Realistic weight distribution
+                            </li>
+</ul>
+</div>
+<div class="flex-1 min-h-[200px] relative">
+<img alt="Physics Engine" class="absolute inset-0 w-full h-full object-cover" data-alt="A digital simulation of chemical diffusion in a laboratory setting, showing colorful vapor clouds interacting with solid surfaces. The colors are vibrant purples and teals against a dark navy background. The style is abstract and scientific, using high-contrast lighting to emphasize the movement of particles in the training software." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnA4SX2y2AWmqvr4gxGEhDaMeXg6bpin69oD1wD0LTH3m1hvuGcoJW1f2XaxvQLTbAWmnkHO7_iWyYwiPvjZC0Yt2mmBBNVnemFvi3I4j2gcA3zRNaOyIX8SoT5cXYp_5XKkn8dF7Hm71ALVEewp-CxW9H0qIjawThYy6GHZvKb_-SLxC4a-009uZgyUUvW6IcCSYt8rSdMKx-N80YM8xlcyNOYKqsjCr2bFxiJgX36UXKaK32Wg5rnM1wVslc6jKq6Vezz4UtTQMP"/>
+</div>
+</div>
+<div class="md:col-span-2 lg:col-span-2 glass-card p-8 rounded-2xl flex items-center justify-between gap-8">
+<div class="max-w-[60%]">
+<h3 class="font-headline-md text-headline-md mb-2">Haptic Feedback</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Integrated with VR controllers for tactile response during precision tasks.</p>
+</div>
+<div class="w-24 h-24 rounded-full bg-tertiary/5 border-2 border-dashed border-tertiary flex items-center justify-center animate-pulse">
+<span class="material-symbols-outlined text-4xl text-tertiary" data-icon="touch_app">touch_app</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Learning Modules Grid -->
+<section class="bg-surface-container-lowest py-24 mb-32">
+<div class="max-w-desktop-max-width mx-auto px-gutter">
+<div class="grid lg:grid-cols-3 gap-12">
+<div class="lg:col-span-1">
+<h2 class="font-display-lg text-display-lg-mobile md:text-headline-md mb-6">Learning Modules</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed">Our curriculum is built on industry-standard SOPs, covering every facet of cleanroom operations from entry to exit.</p>
+<div class="space-y-4">
+<div class="flex items-center gap-4 p-4 rounded-xl bg-surface-container-high">
+<span class="material-symbols-outlined text-tertiary" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-md text-label-md">150+ Interactive Objects</span>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-xl bg-surface-container-high">
+<span class="material-symbols-outlined text-tertiary" data-icon="verified_user">verified_user</span>
+<span class="font-label-md text-label-md">OSHA Compliant Content</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-2 grid md:grid-cols-2 gap-6">
+<!-- PPE Module -->
+<div class="group relative bg-surface-container border border-outline-variant p-6 rounded-2xl hover:border-tertiary transition-all">
+<div class="mb-4 text-tertiary">
+<span class="material-symbols-outlined text-4xl" data-icon="safety_check">safety_check</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-2">PPE Gowning</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Sequence-critical training for don and doff procedures including sterile gloves, hoods, and coveralls.</p>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-tertiary w-3/4 h-full"></div>
+</div>
+</div>
+<!-- Chemicals Module -->
+<div class="group relative bg-surface-container border border-outline-variant p-6 rounded-2xl hover:border-tertiary transition-all">
+<div class="mb-4 text-tertiary">
+<span class="material-symbols-outlined text-4xl" data-icon="science">science</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-2">Chemical Handling</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Master the mixing, application, and safety protocols for IPA, hydrogen peroxide, and phenolic cleaners.</p>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-primary w-1/2 h-full"></div>
+</div>
+</div>
+<!-- Sequence Module -->
+<div class="group relative bg-surface-container border border-outline-variant p-6 rounded-2xl hover:border-tertiary transition-all">
+<div class="mb-4 text-tertiary">
+<span class="material-symbols-outlined text-4xl" data-icon="account_tree">account_tree</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-2">Operation Sequence</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">High-stakes simulation of the specific order of operations for aseptic processing and cleaning.</p>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-tertiary w-1/4 h-full"></div>
+</div>
+</div>
+<!-- Emergency Module -->
+<div class="group relative bg-surface-container border border-outline-variant p-6 rounded-2xl hover:border-tertiary transition-all">
+<div class="mb-4 text-error">
+<span class="material-symbols-outlined text-4xl" data-icon="emergency_home">emergency_home</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-2">Emergency Protocols</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Response training for spills, fire alarms, and power failures within critical environments.</p>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-error w-full h-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Supervisor Dashboard Mockup -->
+<section class="max-w-desktop-max-width mx-auto px-gutter mb-32">
+<div class="glass-card rounded-3xl overflow-hidden border border-outline-variant/30">
+<div class="grid lg:grid-cols-5 h-full">
+<!-- Sidebar Mockup -->
+<div class="lg:col-span-1 bg-surface-container-high p-6 hidden lg:flex flex-col gap-6">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-8 h-8 rounded bg-primary"></div>
+<span class="font-bold text-on-surface">Admin Portal</span>
+</div>
+<nav class="space-y-2">
+<div class="flex items-center gap-3 p-3 rounded-lg bg-secondary-container text-on-secondary-container">
+<span class="material-symbols-outlined text-sm" data-icon="dashboard">dashboard</span>
+<span class="text-xs font-bold">Dashboard</span>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant hover:bg-surface-bright transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="groups">groups</span>
+<span class="text-xs">Team Analytics</span>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant hover:bg-surface-bright transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="verified">verified</span>
+<span class="text-xs">Certifications</span>
+</div>
+</nav>
+</div>
+<!-- Dashboard Content Mockup -->
+<div class="lg:col-span-4 p-8 md:p-12">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
+<div>
+<h2 class="font-headline-md text-headline-md mb-2">Supervisor Dashboard</h2>
+<p class="text-on-surface-variant text-sm">Real-time oversight of your workforce proficiency.</p>
+</div>
+<div class="flex gap-2">
+<div class="px-4 py-2 bg-surface-container-highest rounded-lg text-xs font-bold border border-outline-variant">EXPORT PDF</div>
+<div class="px-4 py-2 bg-tertiary text-on-tertiary rounded-lg text-xs font-bold">NEW REPORT</div>
+</div>
+</div>
+<div class="grid md:grid-cols-3 gap-6 mb-12">
+<div class="bg-surface-container p-6 rounded-2xl border border-outline-variant">
+<p class="text-xs text-on-surface-variant mb-2">Average Score</p>
+<div class="flex items-end gap-2">
+<span class="text-3xl font-bold text-on-surface">94.2%</span>
+<span class="text-tertiary text-xs mb-1 font-bold">↑ 4.1%</span>
+</div>
+</div>
+<div class="bg-surface-container p-6 rounded-2xl border border-outline-variant">
+<p class="text-xs text-on-surface-variant mb-2">Active Sessions</p>
+<div class="flex items-end gap-2">
+<span class="text-3xl font-bold text-on-surface">12</span>
+<span class="text-on-surface-variant text-xs mb-1">Across 3 sites</span>
+</div>
+</div>
+<div class="bg-surface-container p-6 rounded-2xl border border-outline-variant">
+<p class="text-xs text-on-surface-variant mb-2">Certs Expiring</p>
+<div class="flex items-end gap-2">
+<span class="text-3xl font-bold text-error">5</span>
+<span class="text-on-surface-variant text-xs mb-1">In 30 days</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container rounded-2xl border border-outline-variant overflow-hidden">
+<div class="p-6 border-b border-outline-variant flex justify-between">
+<span class="font-bold text-sm">Recent Activity</span>
+<span class="text-tertiary text-xs">View All</span>
+</div>
+<table class="w-full text-left text-sm">
+<thead>
+<tr class="text-on-surface-variant border-b border-outline-variant">
+<th class="p-6 font-medium">Operator</th>
+<th class="p-6 font-medium">Module</th>
+<th class="p-6 font-medium">Status</th>
+<th class="p-6 font-medium">Score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-outline-variant/50">
+<td class="p-6">Sarah Jenkins</td>
+<td class="p-6">PPE Gowning III</td>
+<td class="p-6"><span class="px-2 py-1 bg-tertiary/20 text-tertiary text-[10px] rounded uppercase font-bold">Passed</span></td>
+<td class="p-6 font-bold">98%</td>
+</tr>
+<tr class="border-b border-outline-variant/50">
+<td class="p-6">Marcus Thorne</td>
+<td class="p-6">Spill Response</td>
+<td class="p-6"><span class="px-2 py-1 bg-error/20 text-error text-[10px] rounded uppercase font-bold">Failed</span></td>
+<td class="p-6 font-bold text-error">64%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Multi-language Support -->
+<section class="max-w-desktop-max-width mx-auto px-gutter mb-32">
+<div class="flex flex-col md:flex-row items-center gap-16">
+<div class="flex-1 order-2 md:order-1">
+<div class="grid grid-cols-2 gap-4">
+<div class="p-8 rounded-2xl bg-surface-container border border-outline-variant text-center">
+<p class="text-3xl font-bold mb-2">EN</p>
+<p class="text-xs text-on-surface-variant uppercase tracking-widest">English</p>
+</div>
+<div class="p-8 rounded-2xl bg-surface-container border border-outline-variant text-center">
+<p class="text-3xl font-bold mb-2">ES</p>
+<p class="text-xs text-on-surface-variant uppercase tracking-widest">Español</p>
+</div>
+<div class="p-8 rounded-2xl bg-surface-container border border-outline-variant text-center">
+<p class="text-3xl font-bold mb-2">DE</p>
+<p class="text-xs text-on-surface-variant uppercase tracking-widest">Deutsch</p>
+</div>
+<div class="p-8 rounded-2xl bg-surface-container border border-outline-variant text-center border-dashed border-tertiary/50">
+<span class="material-symbols-outlined text-tertiary" data-icon="add">add</span>
+<p class="text-xs text-tertiary uppercase tracking-widest mt-2">Custom</p>
+</div>
+</div>
+</div>
+<div class="flex-1 order-1 md:order-2">
+<h2 class="font-display-lg text-display-lg-mobile md:text-headline-md mb-6 leading-tight">Global Compliance, <span class="text-tertiary">Local Context</span>.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Train your global workforce with unified standards. Our platform supports 12+ languages with localized voiceovers and technical terminology, ensuring no operator is left behind due to language barriers.</p>
+<div class="flex items-center gap-4 text-tertiary">
+<span class="material-symbols-outlined" data-icon="language">language</span>
+<span class="font-label-md text-label-md">Real-time localized HUD switching</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="max-w-desktop-max-width mx-auto px-gutter">
+<div class="bg-primary-container rounded-3xl p-12 md:p-20 text-center relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-r from-tertiary/5 to-transparent pointer-events-none"></div>
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-6 relative z-10">Ready to Modernize Your Training?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-2xl mx-auto relative z-10">Join 50+ enterprise pilot customers who have reduced training costs by 40% using the CleanOps simulation engine.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
+<button class="bg-tertiary text-on-tertiary px-10 py-5 rounded-xl font-label-md text-label-md font-bold hover:bg-tertiary-fixed transition-all shadow-xl shadow-tertiary/10">
+                        Get Started Today
+                    </button>
+<button class="bg-surface-container-high text-on-surface px-10 py-5 rounded-xl font-label-md text-label-md font-bold hover:bg-surface-bright transition-all border border-outline-variant">
+                        Schedule a Demo
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="border-t border-outline-variant bg-surface-container-lowest py-16">
+<div class="w-full py-12 px-gutter max-w-desktop-max-width mx-auto flex flex-col md:flex-row justify-between gap-12">
+<div>
+<div class="font-headline-md text-headline-md font-bold text-primary mb-6">CleanOps Academy</div>
+<p class="text-on-surface-variant max-w-xs font-body-md text-body-md">Empowering cleanroom excellence through immersive simulation and advanced reporting.</p>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-12">
+<div class="space-y-4">
+<h5 class="font-bold text-on-surface text-sm uppercase tracking-widest">Platform</h5>
+<ul class="space-y-2 text-on-surface-variant text-sm">
+<li><a class="hover:text-tertiary transition-colors" href="#">Simulation</a></li>
+<li><a class="hover:text-tertiary transition-colors" href="#">Curriculum</a></li>
+<li><a class="hover:text-tertiary transition-colors" href="#">Analytics</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h5 class="font-bold text-on-surface text-sm uppercase tracking-widest">Company</h5>
+<ul class="space-y-2 text-on-surface-variant text-sm">
+<li><a class="hover:text-tertiary transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-tertiary transition-colors" href="#">Careers</a></li>
+<li><a class="hover:text-tertiary transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h5 class="font-bold text-on-surface text-sm uppercase tracking-widest">Legal</h5>
+<ul class="space-y-2 text-on-surface-variant text-sm">
+<li><a class="hover:text-tertiary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-tertiary transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="max-w-desktop-max-width mx-auto px-gutter pt-8 border-t border-outline-variant/30 flex flex-col sm:flex-row justify-between items-center gap-4">
+<p class="text-on-surface-variant text-xs font-body-md">© 2024 CleanOps Academy. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="text-on-surface-variant hover:text-tertiary transition-all" href="#"><span class="material-symbols-outlined text-xl">share</span></a>
+<a class="text-on-surface-variant hover:text-tertiary transition-all" href="#"><span class="material-symbols-outlined text-xl">public</span></a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions and hover effects
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-5px)';
+                card.style.transition = 'all 0.3s ease-out';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CleanOps Academy | Next-Gen Cleaning Simulation Training</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#5ffbd6",
+                    "surface-dim": "#08132a",
+                    "surface": "#08132a",
+                    "on-primary-container": "#74829d",
+                    "primary": "#b9c7e4",
+                    "secondary-container": "#374767",
+                    "on-background": "#d9e2ff",
+                    "on-surface-variant": "#c5c6cd",
+                    "surface-container-highest": "#2a344d",
+                    "outline-variant": "#44474d",
+                    "on-surface": "#d9e2ff",
+                    "tertiary": "#38debb",
+                    "error-container": "#93000a",
+                    "background": "#08132a",
+                    "on-secondary": "#20304f",
+                    "outline": "#8f9097",
+                    "on-secondary-fixed": "#091b39",
+                    "on-primary-fixed": "#0d1c32",
+                    "primary-fixed-dim": "#b9c7e4",
+                    "secondary": "#b6c6ed",
+                    "tertiary-container": "#001e17",
+                    "inverse-surface": "#d9e2ff",
+                    "on-tertiary-fixed": "#002019",
+                    "on-tertiary-container": "#00937a",
+                    "inverse-on-surface": "#263049",
+                    "error": "#ffb4ab",
+                    "surface-tint": "#b9c7e4",
+                    "on-secondary-container": "#a5b5db",
+                    "surface-container-lowest": "#030d25",
+                    "on-tertiary": "#00382d",
+                    "on-secondary-fixed-variant": "#374767",
+                    "on-primary-fixed-variant": "#39475f",
+                    "secondary-fixed-dim": "#b6c6ed",
+                    "primary-container": "#0a192f",
+                    "on-error": "#690005",
+                    "on-error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#38debb",
+                    "primary-fixed": "#d6e3ff",
+                    "on-tertiary-fixed-variant": "#005142",
+                    "surface-container-high": "#1f2942",
+                    "surface-container": "#151f37",
+                    "surface-bright": "#2f3952",
+                    "surface-container-low": "#101b33",
+                    "inverse-primary": "#515f78",
+                    "secondary-fixed": "#d8e2ff",
+                    "surface-variant": "#2a344d",
+                    "on-primary": "#233148"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "gutter": "16px",
+                    "desktop-max-width": "1440px",
+                    "container-padding": "24px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "display-lg-mobile": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #08132a;
+            color: #d9e2ff;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .glass-card {
+            background: rgba(17, 34, 64, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(35, 53, 84, 1);
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md">
+<!-- TopNavBar -->
+<header class="bg-surface-container-low shadow-sm sticky top-0 z-50">
+<nav class="flex justify-between items-center w-full px-gutter max-w-desktop-max-width mx-auto h-20">
+<div class="font-headline-md text-headline-md font-bold text-on-surface">CleanOps Academy</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-tertiary-fixed transition-colors duration-200" href="#">Modules</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-tertiary-fixed transition-colors duration-200" href="#">Curriculum</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-tertiary-fixed transition-colors duration-200" href="#">Pilot Program</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-tertiary-fixed transition-colors duration-200" href="#">About Us</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-tertiary transition-colors">Login</button>
+<button class="bg-tertiary text-on-tertiary font-label-md text-label-md px-6 py-2 rounded-full hover:opacity-90 active:scale-95 transition-all">Request a Demo</button>
+</div>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative overflow-hidden pt-20 pb-32">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(56,222,187,0.1),transparent_70%)]"></div>
+<div class="max-w-desktop-max-width mx-auto px-gutter relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div>
+<span class="bg-secondary-container text-on-secondary-container px-4 py-1 rounded-full text-label-sm font-label-sm mb-6 inline-block">THE NEW STANDARD IN JANITORIAL TRAINING</span>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-6 text-on-surface">Simulation-Based Training for the Next Generation of Cleaning Workers</h1>
+<p class="text-on-surface-variant font-body-lg text-body-lg mb-10 max-w-xl">CleanOps Academy helps cleaning companies train workers faster, improve quality, and reduce mistakes through interactive 2D/3D cleaning simulations, scoring, certificates, and supervisor reporting.</p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-tertiary text-on-tertiary font-label-md text-label-md px-8 py-4 rounded-lg hover:shadow-[0_0_20px_rgba(56,222,187,0.4)] transition-all">Request a Demo</button>
+<button class="border border-tertiary text-tertiary font-label-md text-label-md px-8 py-4 rounded-lg hover:bg-tertiary/10 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined">play_circle</span>
+                            View Simulation Preview
+                        </button>
+</div>
+</div>
+<div class="relative">
+<div class="glass-card rounded-2xl overflow-hidden aspect-video shadow-2xl border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="A high-fidelity 3D simulation of a modern hospital corridor being cleaned by a professional worker. The interface shows interactive overlays, PPE selection icons, and a real-time progress bar. The lighting is clinical and bright, following the CleanOps deep navy and emerald green color palette. The scene looks professional, technical, and cutting-edge." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqvT_vtsLHk4A8EmqmC0VMBXcP00QjGRxZ0hWny_6dVQJOM-lMraiKys4626Z8UIuqNP-0kRA2LvP___8vdwg3WCTyny9q-fvvQKj9AWEgo6slkx-gtC16X2E4ANQZv0iDQ48Ey7FZugfUfC8dnQpaLH_6cdDjk1Rfg_y_Uk75OYGu4GBJYys2O-rKUhXngsxqUl8eHLifKYw0Qg5uMabYoGLMrgGchQbKfRBeHZBEQG8XXCNLvkJgnimCvjZkEtdrlBbWjbJGtfzE"/>
+<div class="absolute bottom-4 left-4 right-4 bg-surface-container/90 backdrop-blur-md p-4 rounded-xl flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary">check_circle</span>
+</div>
+<div>
+<div class="text-label-md font-label-md text-on-surface">Scenario: Healthcare Sanitization</div>
+<div class="text-label-sm font-label-sm text-tertiary">Live Score: 94% - Certification Track</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Problem Section -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-desktop-max-width mx-auto px-gutter">
+<div class="text-center mb-16">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4">The Challenges of Modern Workforce Training</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto">Traditional cleaning training is slow, ineffective, and disconnected from the reality of the field.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="glass-card p-8 rounded-xl border-l-4 border-error">
+<span class="material-symbols-outlined text-error mb-4 text-4xl">trending_down</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">High Turnover</h3>
+<p class="text-on-surface-variant">Untrained workers feel overwhelmed and quit early. We bridge the gap between day one and mastery.</p>
+</div>
+<div class="glass-card p-8 rounded-xl border-l-4 border-tertiary">
+<span class="material-symbols-outlined text-tertiary mb-4 text-4xl">warning</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">Safety Mistakes</h3>
+<p class="text-on-surface-variant">Incorrect chemical mixing and PPE neglect cause injuries. Simulations allow mistakes in a safe environment.</p>
+</div>
+<div class="glass-card p-8 rounded-xl border-l-4 border-primary">
+<span class="material-symbols-outlined text-primary mb-4 text-4xl">sync_problem</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">Inconsistent Quality</h3>
+<p class="text-on-surface-variant">Training varies by supervisor. Standardize your results with a unified, digital curriculum.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Solution & Simulation Section (Bento Style) -->
+<section class="py-24">
+<div class="max-w-desktop-max-width mx-auto px-gutter">
+<div class="mb-12">
+<h2 class="font-headline-md text-headline-md text-on-surface">The Solution: Interactive Simulation Training</h2>
+</div>
+<div class="bento-grid">
+<div class="col-span-12 lg:col-span-7 glass-card rounded-2xl p-8 flex flex-col justify-between overflow-hidden relative">
+<div class="relative z-10">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Learning by Doing</h3>
+<p class="text-on-surface-variant mb-6 max-w-md">Our 2D and 3D simulations place workers in realistic scenarios where they must identify soil types, select equipment, and perform cleaning steps in the correct order.</p>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-md text-label-md">Explore Scenarios</button>
+</div>
+<img class="absolute bottom-0 right-0 w-1/2 h-2/3 object-cover rounded-tl-3xl border-t border-l border-outline-variant" data-alt="A close-up view of a tablet screen displaying a sophisticated janitorial simulation. The user is selecting between different types of gloves and safety goggles in a minimalist UI. The background of the simulation shows a clean commercial office kitchen. The lighting is soft and professional, emphasizing high-tech training tools in a dark navy environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2iOEk0ePmOG7QuknajDzDsuKvplShuBjIznti1lQmlxgrNrv-x81TyqQ3-q8cc6Wc_pZNNlT7yVNY10BQdNxERrjxqu_X6vAF1u68YXWnRSg8PaQhvH5si9FDBCDratZjWcVgyvA6-Ky7tMweKrRULOOuhZfT809-p_rCNjsy7_44a9Ac7rXBNGhQUp7V7FqaF3vawqPxE-wqhQ3Rflo4KiKnnFMVN9uf59fEvn4LVGXHh22czV7AA6gGjsdYAo8cRLji2ui0NTJW"/>
+</div>
+<div class="col-span-12 lg:col-span-5 glass-card rounded-2xl p-8">
+<div class="w-12 h-12 bg-tertiary/20 rounded-lg flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-tertiary">health_and_safety</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">PPE &amp; Chemical Safety</h3>
+<p class="text-on-surface-variant mb-4">Critical safety checks are built into every module. Workers must choose the correct PPE before starting a task, reinforcing safety as a reflex rather than an afterthought.</p>
+<ul class="space-y-3">
+<li class="flex items-center gap-2 text-on-surface"><span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">check</span> Glove Selection Protocols</li>
+<li class="flex items-center gap-2 text-on-surface"><span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">check</span> Eye Protection Mastery</li>
+<li class="flex items-center gap-2 text-on-surface"><span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">check</span> Chemical Dilution Accuracy</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works (Stepper) -->
+<section class="py-24 bg-surface-container-lowest border-y border-outline-variant">
+<div class="max-w-desktop-max-width mx-auto px-gutter">
+<h2 class="font-headline-md text-headline-md text-on-surface text-center mb-16">The Training Journey</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative">
+<!-- Step 1 -->
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold mb-6">1</div>
+<h4 class="font-label-md text-label-md text-on-surface mb-2">Choose Scenario</h4>
+<p class="text-on-surface-variant text-label-sm font-label-sm">Select from a library of industry-specific cleaning environments.</p>
+</div>
+<!-- Step 2 -->
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold mb-6">2</div>
+<h4 class="font-label-md text-label-md text-on-surface mb-2">Enter Simulation</h4>
+<p class="text-on-surface-variant text-label-sm font-label-sm">Launch the interactive environment on any device or tablet.</p>
+</div>
+<!-- Step 3 -->
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold mb-6">3</div>
+<h4 class="font-label-md text-label-md text-on-surface mb-2">Select PPE/Products</h4>
+<p class="text-on-surface-variant text-label-sm font-label-sm">Equip yourself with the necessary safety gear and tools.</p>
+</div>
+<!-- Step 4 -->
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold mb-6">4</div>
+<h4 class="font-label-md text-label-md text-on-surface mb-2">Complete Tasks</h4>
+<p class="text-on-surface-variant text-label-sm font-label-sm">Follow the "S" pattern and industry-standard protocols.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12 pt-12 border-t border-outline-variant/30">
+<div>
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold mb-6">5</div>
+<h4 class="font-label-md text-label-md text-on-surface mb-2">Get Feedback</h4>
+<p class="text-on-surface-variant text-label-sm font-label-sm">Immediate scoring and highlighting of missed spots or errors.</p>
+</div>
+<div>
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold mb-6">6</div>
+<h4 class="font-label-md text-label-md text-on-surface mb-2">Earn Certificate</h4>
+<p class="text-on-surface-variant text-label-sm font-label-sm">Receive digital credentials upon successful completion.</p>
+</div>
+<div>
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold mb-6">7</div>
+<h4 class="font-label-md text-label-md text-on-surface mb-2">Supervisor Review</h4>
+<p class="text-on-surface-variant text-label-sm font-label-sm">Managers receive detailed performance reports automatically.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Features -->
+<section class="py-24">
+<div class="max-w-desktop-max-width mx-auto px-gutter">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div class="order-2 lg:order-1">
+<div class="grid grid-cols-2 gap-6">
+<div class="glass-card p-6 rounded-xl text-center">
+<span class="material-symbols-outlined text-tertiary text-4xl mb-4">view_in_ar</span>
+<div class="font-label-md text-label-md text-on-surface">3D Simulation</div>
+</div>
+<div class="glass-card p-6 rounded-xl text-center">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">checklist</span>
+<div class="font-label-md text-label-md text-on-surface">Scenario-Based</div>
+</div>
+<div class="glass-card p-6 rounded-xl text-center">
+<span class="material-symbols-outlined text-secondary text-4xl mb-4">analytics</span>
+<div class="font-label-md text-label-md text-on-surface">Progress Tracking</div>
+</div>
+<div class="glass-card p-6 rounded-xl text-center">
+<span class="material-symbols-outlined text-on-tertiary-container text-4xl mb-4">verified</span>
+<div class="font-label-md text-label-md text-on-surface">Certifications</div>
+</div>
+</div>
+</div>
+<div class="order-1 lg:order-2">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-6">Key Features for High-Performing Teams</h2>
+<p class="text-on-surface-variant font-body-lg text-body-lg mb-8">CleanOps Academy isn't just a video player. It's a comprehensive training ecosystem designed for retention and operational excellence.</p>
+<ul class="space-y-6">
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-tertiary">check_circle</span>
+<div>
+<h5 class="font-label-md text-label-md text-on-surface">Multi-Platform Access</h5>
+<p class="text-on-surface-variant text-label-sm font-label-sm">Train on tablets, smartphones, or desktop browsers anywhere.</p>
+</div>
+</li>
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-tertiary">check_circle</span>
+<div>
+<h5 class="font-label-md text-label-md text-on-surface">Data-Driven Coaching</h5>
+<p class="text-on-surface-variant text-label-sm font-label-sm">Identify exactly which workers need help with specific tasks.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Industries -->
+<section class="py-24 bg-surface-container">
+<div class="max-w-desktop-max-width mx-auto px-gutter">
+<h2 class="font-headline-md text-headline-md text-on-surface text-center mb-16">Customized for Your Industry</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+<div class="group relative rounded-xl overflow-hidden aspect-square shadow-lg">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A futuristic commercial office lobby with clean glass surfaces and architectural lighting. A professional cleaning cart is visible in the background. The aesthetic is clean and corporate, utilizing the brand colors of deep navy and bright accent teal. The lighting is crisp and modern." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZMyXRexVqW9I1xTavWe99DV8-choi8p9HvQNyQx8F6n9WR5itucw7g0giSu1zrQBuESB7HCL7ZTds70OHD5Blmm9tOwwxQe1hWsd9bd7i7Mc5lVc6qUnUvxxgPioqUUFELqZCaQeHsyVN2pASnpHN2TnjLApBd1mJUbtj750xK1Jl02Avm3rtZcM6gQ2r9Xaf2uqzE6denNypK40xGHgtqzXj2yEqGYt_CXhTgfAK0ouJEgjqAvWxm4x_hzqocvwhGyTdyfI-jWmO"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim to-transparent opacity-80"></div>
+<div class="absolute bottom-4 left-4 font-label-md text-label-md text-on-surface">Commercial</div>
+</div>
+<div class="group relative rounded-xl overflow-hidden aspect-square shadow-lg">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A brightly lit, clean daycare classroom with colorful furniture and toys. The image focus is on high-touch surfaces that require sanitization. The style is professional yet warm, with the UI color palette subtly integrated through lighting and shadows. The mood is safe and pristine." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgrU0G38j6Qo-p182Rsb_SvaVnyw70xafQMneIZsJz6U6kMW-0MCTLgLZUpRCYW1trf8wH2r6Q30BfrCtmKiOTE2D_CUlW_8r-8Hf_kUfLiLUG97_6-6HvrzA1ehQnFJXA4GGuVEPAst9H0E-bdXHvnjfqvus7fIghm78oYi9Ml2WNpSj_TIPlL_0PaueiM9_OmdZoEMkgOqnN5Etg3y2t5rx4gecb49_FXZevg6xP0AO214j1jJgTQaFlBjhMe1yRV-js5dAFwsT5"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim to-transparent opacity-80"></div>
+<div class="absolute bottom-4 left-4 font-label-md text-label-md text-on-surface">Daycare</div>
+</div>
+<div class="group relative rounded-xl overflow-hidden aspect-square shadow-lg">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A sterile, high-tech healthcare facility hallway with clean white surfaces and blue accent lighting. The environment looks medically clean and technologically advanced. The style is professional B2B with a focus on hygiene and safety standards." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBc1Jq-KRAO9z5nrzK-e0NacKkxBHa4AjS5NUMdPmzeHV-3bGCCjLKRanW_LWRIOLoKFFNJzWER9lopXBOKkNxIMUjIQl4VJRS2hdw53mJCywNDP7YrCrwheggmxNp7dlC5GzOkztxrC5MTcjhNsB7as4zjuYH1xgs1CBymcyZ9z0SIBL4ZXCMxiYBuyjZXVjwnrlWUgMt-rQMePI96FJr7C7dTXfr7QUmWxKajHGcFiZEugcK-s7RpCx8N48v5WWrog-d33OhRV5PJ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim to-transparent opacity-80"></div>
+<div class="absolute bottom-4 left-4 font-label-md text-label-md text-on-surface">Healthcare</div>
+</div>
+<div class="group relative rounded-xl overflow-hidden aspect-square shadow-lg">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A luxury hotel suite with pristine bedding and polished surfaces. The lighting is warm and welcoming, emphasizing a high standard of cleanliness. The image follows a premium startup aesthetic with deep navy shadows and soft teal highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBEpK2awR0t9DEi1-S-CQfa_vNWndV56bEwd-MRABigmM21G4SX57NHXejpvj4GykEB9NHe4YAkMjbq5K-0YRQ8si0j40GgYkZ6joMyO6pD_EwlZfcJIjUsXAaU2aVzKLOA-y_9oqke6nSmZs0xnnN4oI_biIOQQATMPtcaW5F6jEbf_gz9kp_KxDsy7ZiGSRFhToOCOyKXa2reWVbDpkpYgcNLDGx7exa3dkbI6Wl2lPimeEB-iuvb9OM5Jt9c2ZFbj6RD9MjbMmq"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim to-transparent opacity-80"></div>
+<div class="absolute bottom-4 left-4 font-label-md text-label-md text-on-surface">Hospitality</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Pilot Program CTA -->
+<section class="py-24 px-gutter">
+<div class="max-w-4xl mx-auto glass-card rounded-3xl p-12 text-center relative overflow-hidden">
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-tertiary opacity-10 blur-3xl rounded-full"></div>
+<div class="absolute -bottom-24 -left-24 w-64 h-64 bg-primary opacity-10 blur-3xl rounded-full"></div>
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-6">Join the CleanOps Pilot Program</h2>
+<p class="text-on-surface-variant font-body-lg text-body-lg mb-10">We are looking for forward-thinking cleaning companies to join our early adopter program. Get exclusive pricing and help shape the future of janitorial training simulations.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<button class="bg-tertiary text-on-tertiary font-label-md text-label-md px-10 py-4 rounded-lg hover:scale-105 transition-transform">Apply for Pilot Access</button>
+<button class="border border-outline text-on-surface font-label-md text-label-md px-10 py-4 rounded-lg hover:bg-surface-variant transition-all">Contact Sales</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant">
+<div class="w-full py-12 px-gutter max-w-desktop-max-width mx-auto flex flex-col md:flex-row justify-between items-start md:items-center">
+<div class="mb-8 md:mb-0">
+<div class="font-headline-md text-headline-md font-bold text-primary mb-2">CleanOps Academy</div>
+<p class="text-on-surface-variant max-w-xs font-body-md text-body-md">Building the workforce of tomorrow with high-stakes simulation training.</p>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-8 text-label-md font-label-md">
+<div class="flex flex-col gap-3">
+<a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Investors</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Pilot Customers</a>
+</div>
+<div class="flex flex-col gap-3">
+<a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Privacy Policy</a>
+</div>
+<div class="flex flex-col gap-3">
+<a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Careers</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Contact</a>
+</div>
+</div>
+</div>
+<div class="max-w-desktop-max-width mx-auto px-gutter py-6 border-t border-outline-variant/30 flex justify-between items-center text-label-sm font-label-sm text-on-surface-variant">
+<span>© 2024 CleanOps Academy. All rights reserved.</span>
+<div class="flex gap-4">
+<span class="material-symbols-outlined cursor-pointer hover:text-tertiary transition-colors">public</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-tertiary transition-colors">share</span>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions and subtle scroll effects
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.glass-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-8');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            cards.forEach(card => {
+                card.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-8');
+                observer.observe(card);
+            });
+        });
+    </script>
+</body></html>

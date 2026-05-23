@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CleanOps Academy - Training Simulation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#bcc7dc",
+                    "secondary-container": "#d8e3f9",
+                    "inverse-primary": "#b2c5ff",
+                    "outline-variant": "#c3c6d6",
+                    "error": "#ba1a1a",
+                    "surface-container": "#ededf8",
+                    "on-error-container": "#93000a",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#dae2ff",
+                    "inverse-on-surface": "#f0f0fb",
+                    "on-surface": "#191b23",
+                    "tertiary-fixed-dim": "#ffb59b",
+                    "secondary-fixed": "#d8e3f9",
+                    "outline": "#737685",
+                    "primary": "#003d9b",
+                    "on-surface-variant": "#434654",
+                    "on-secondary-fixed": "#111c2b",
+                    "on-tertiary-fixed": "#380d00",
+                    "inverse-surface": "#2e3038",
+                    "on-primary-container": "#c4d2ff",
+                    "surface": "#faf8ff",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#ffdbcf",
+                    "surface-container-lowest": "#ffffff",
+                    "background": "#faf8ff",
+                    "tertiary-container": "#a33500",
+                    "on-primary-fixed-variant": "#0040a2",
+                    "surface-variant": "#e1e2ec",
+                    "on-tertiary-container": "#ffc6b2",
+                    "on-secondary-fixed-variant": "#3c4759",
+                    "on-primary-fixed": "#001848",
+                    "surface-bright": "#faf8ff",
+                    "on-tertiary-fixed-variant": "#812800",
+                    "surface-container-highest": "#e1e2ec",
+                    "error-container": "#ffdad6",
+                    "surface-container-high": "#e7e7f2",
+                    "secondary": "#545f71",
+                    "primary-fixed-dim": "#b2c5ff",
+                    "on-tertiary": "#ffffff",
+                    "surface-tint": "#0c56d0",
+                    "on-background": "#191b23",
+                    "surface-dim": "#d9d9e4",
+                    "surface-container-low": "#f3f3fd",
+                    "on-error": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "margin-desktop": "64px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "hud-data": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "hud-data": ["14px", {"lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hud-blur {
+            backdrop-filter: blur(8px);
+        }
+        .reticle-ring {
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+        }
+        .reticle-dot {
+            width: 4px;
+            height: 4px;
+            background: #ffffff;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-hidden">
+<!-- Top Navigation Bar (Shared Component) -->
+<header class="bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline flex justify-between items-center w-full px-margin-desktop h-16 fixed top-0 z-50">
+<div class="flex items-center gap-4">
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-inverse-primary">CleanOps Academy</span>
+</div>
+<div class="flex items-center gap-6">
+<span class="text-primary dark:text-inverse-primary font-label-md text-label-md font-bold">System Status: Active</span>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-surface-container-high transition-colors p-2 rounded-full">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-surface-container-high transition-colors p-2 rounded-full">help_center</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-surface-container-high transition-colors p-2 rounded-full">account_circle</span>
+</div>
+</div>
+</header>
+<!-- Side Navigation Bar (Shared Component) -->
+<aside class="bg-surface-container dark:bg-inverse-surface border-r border-outline-variant dark:border-outline fixed left-0 top-0 h-full flex flex-col p-4 gap-2 z-40 w-64 pt-20">
+<div class="mb-6 px-2">
+<h2 class="font-headline-md text-primary dark:text-inverse-primary font-black">Mission Control</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Safety First Protocol</p>
+</div>
+<nav class="flex-1 flex flex-col gap-1">
+<!-- Classroom is Active -->
+<a class="bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary font-bold rounded-lg flex items-center gap-3 p-3 scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-md">Classroom</span>
+</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-on-surface hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all duration-200 flex items-center gap-3 p-3 rounded-lg" href="#">
+<span class="material-symbols-outlined">meeting_room</span>
+<span class="font-label-md">Bathroom</span>
+</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-on-surface hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all duration-200 flex items-center gap-3 p-3 rounded-lg" href="#">
+<span class="material-symbols-outlined">restaurant</span>
+<span class="font-label-md">Kitchen</span>
+</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-on-surface hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all duration-200 flex items-center gap-3 p-3 rounded-lg" href="#">
+<span class="material-symbols-outlined">straighten</span>
+<span class="font-label-md">Hallway</span>
+</a>
+</nav>
+<button class="bg-primary text-on-primary font-label-md text-label-md py-4 rounded-lg mt-4 mb-8 shadow-md hover:bg-on-primary-fixed-variant transition-colors">
+            Start Simulation
+        </button>
+<div class="flex flex-col gap-1 pt-4 border-t border-outline-variant">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-on-surface hover:bg-surface-container-highest flex items-center gap-3 p-3 rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md">Settings</span>
+</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-on-surface hover:bg-surface-container-highest flex items-center gap-3 p-3 rounded-lg" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Simulation Canvas -->
+<main class="ml-64 pt-16 h-screen relative bg-surface-dim">
+<!-- 3D Environment Background -->
+<div class="absolute inset-0 z-0">
+<img alt="Classroom Simulation" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ujBw1QGgOFHFDEmCVoZnl7t3XqtoX8T3iKflDpMd5_8J6WQC_GRyf3SPpwWaDkReqPyCqIkKGziyxmCGsPTLpkcZCUo8PkkzV1yi_c0QoGjjRPykNKssfz248cPBkXhExwQ2MA6sgFuxE0m2I5yroKUuE4phlj_l3LGBRn5EHIniPk251-uOutoiS2ws0o3FRnoKtP5XZ6b9SJ4Gvs2cjki7EJ8kCTd_yR1YavPCCceoSCwrETaUV6Muz90"/>
+</div>
+<!-- HUD: Interaction Reticle -->
+<div class="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+<div class="relative flex items-center justify-center">
+<div class="reticle-ring flex items-center justify-center">
+<div class="reticle-dot"></div>
+</div>
+<div class="absolute top-14 bg-inverse-surface/80 hud-blur px-3 py-1 rounded border border-outline/30">
+<span class="text-white font-hud-data text-hud-data uppercase tracking-wider">Interact: Table Surface</span>
+</div>
+</div>
+</div>
+<!-- HUD: Left Stats (Cleanliness Gauge) -->
+<div class="absolute top-8 left-8 z-20 w-64 space-y-4">
+<div class="bg-inverse-surface/80 hud-blur p-4 rounded-lg border border-outline/30 text-white shadow-xl">
+<div class="flex justify-between items-end mb-2">
+<span class="font-hud-data text-hud-data uppercase opacity-70">Cleanliness Status</span>
+<span class="font-hud-data text-headline-md text-primary-fixed">45%</span>
+</div>
+<div class="w-full bg-on-surface-variant/30 h-2 rounded-full overflow-hidden">
+<div class="bg-primary-fixed h-full w-[45%]"></div>
+</div>
+<div class="mt-3 flex items-center gap-2 text-primary-fixed">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span class="text-label-sm font-label-sm">Standard: Healthcare Grade</span>
+</div>
+</div>
+</div>
+<!-- HUD: Right Panel (Mission Checklist) -->
+<div class="absolute top-8 right-8 z-20 w-80 space-y-6">
+<!-- Checklist Card -->
+<div class="bg-inverse-surface/80 hud-blur p-5 rounded-lg border border-outline/30 text-white shadow-xl">
+<h3 class="font-headline-md text-headline-md mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-fixed">assignment</span>
+                    Mission Checklist
+                </h3>
+<ul class="space-y-4">
+<li class="flex items-center gap-3">
+<div class="w-6 h-6 border-2 border-primary-fixed rounded flex items-center justify-center bg-primary-fixed/20">
+<span class="material-symbols-outlined text-[18px] text-primary-fixed">check</span>
+</div>
+<span class="font-body-md text-body-md line-through opacity-50">Don PPE</span>
+</li>
+<li class="flex items-center gap-3">
+<div class="w-6 h-6 border-2 border-primary-fixed rounded flex items-center justify-center"></div>
+<span class="font-body-md text-body-md">Apply Surface Sanitizer</span>
+</li>
+<li class="flex items-center gap-3">
+<div class="w-6 h-6 border-2 border-outline rounded flex items-center justify-center"></div>
+<span class="font-body-md text-body-md text-outline">Wipe table surface</span>
+</li>
+</ul>
+</div>
+<!-- Inventory Card -->
+<div class="bg-inverse-surface/80 hud-blur p-5 rounded-lg border border-outline/30 text-white shadow-xl">
+<h3 class="font-label-md text-label-md uppercase tracking-widest text-primary-fixed mb-4">Quick Inventory</h3>
+<div class="grid grid-cols-3 gap-3">
+<div class="flex flex-col items-center gap-2 p-3 bg-on-surface-variant/20 rounded border border-outline/20 group hover:border-primary-fixed transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">clean_hands</span>
+<span class="text-[10px] font-label-sm uppercase opacity-70">Gloves</span>
+</div>
+<div class="flex flex-col items-center gap-2 p-3 bg-on-surface-variant/20 rounded border border-outline/20 group hover:border-primary-fixed transition-colors cursor-pointer border-primary-fixed ring-1 ring-primary-fixed">
+<span class="material-symbols-outlined text-primary-fixed" style="font-variation-settings: 'FILL' 1;">sanitizer</span>
+<span class="text-[10px] font-label-sm uppercase text-primary-fixed">Sanitizer</span>
+</div>
+<div class="flex flex-col items-center gap-2 p-3 bg-on-surface-variant/20 rounded border border-outline/20 group hover:border-primary-fixed transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-on-primary-container">layers</span>
+<span class="text-[10px] font-label-sm uppercase opacity-70">Cloth</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Simulation Alerts -->
+<div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex gap-4">
+<div class="bg-error-container/90 hud-blur border border-error/30 px-6 py-3 rounded-full flex items-center gap-3 shadow-lg">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="text-on-error-container font-label-md">Unsanitized surface detected: Desk 4B</span>
+</div>
+</div>
+<!-- Control Prompts (Bottom Right) -->
+<div class="absolute bottom-8 right-8 z-20 flex gap-8 text-white/60 font-hud-data text-hud-data uppercase">
+<div class="flex items-center gap-2">
+<kbd class="bg-on-surface-variant/40 px-2 py-1 rounded border border-outline/30 text-white min-w-[24px] text-center">E</kbd>
+<span>Interact</span>
+</div>
+<div class="flex items-center gap-2">
+<kbd class="bg-on-surface-variant/40 px-2 py-1 rounded border border-outline/30 text-white min-w-[24px] text-center">TAB</kbd>
+<span>Inventory</span>
+</div>
+<div class="flex items-center gap-2">
+<kbd class="bg-on-surface-variant/40 px-2 py-1 rounded border border-outline/30 text-white min-w-[24px] text-center">ESC</kbd>
+<span>Pause</span>
+</div>
+</div>
+</main>
+</body></html>

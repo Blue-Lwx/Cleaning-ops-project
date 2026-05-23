@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<title>Settings | CleanOps Academy</title>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #08132a; /* surface */
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030d25;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #374767;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #44474d;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-on-surface": "#263049",
+                      "error": "#ffb4ab",
+                      "inverse-surface": "#d9e2ff",
+                      "on-tertiary-fixed": "#002019",
+                      "on-tertiary-container": "#00937a",
+                      "secondary": "#b6c6ed",
+                      "primary-fixed-dim": "#b9c7e4",
+                      "tertiary-container": "#001e17",
+                      "background": "#08132a",
+                      "on-secondary": "#20304f",
+                      "outline": "#8f9097",
+                      "on-secondary-fixed": "#091b39",
+                      "on-primary-fixed": "#0d1c32",
+                      "surface-container-highest": "#2a344d",
+                      "secondary-container": "#374767",
+                      "on-surface-variant": "#c5c6cd",
+                      "on-background": "#d9e2ff",
+                      "outline-variant": "#44474d",
+                      "on-surface": "#d9e2ff",
+                      "tertiary": "#38debb",
+                      "error-container": "#93000a",
+                      "surface": "#08132a",
+                      "on-primary-container": "#74829d",
+                      "primary": "#b9c7e4",
+                      "tertiary-fixed": "#5ffbd6",
+                      "surface-dim": "#08132a",
+                      "inverse-primary": "#515f78",
+                      "surface-variant": "#2a344d",
+                      "secondary-fixed": "#d8e2ff",
+                      "on-primary": "#233148",
+                      "surface-container": "#151f37",
+                      "surface-bright": "#2f3952",
+                      "surface-container-low": "#101b33",
+                      "primary-fixed": "#d6e3ff",
+                      "on-tertiary-fixed-variant": "#005142",
+                      "surface-container-high": "#1f2942",
+                      "tertiary-fixed-dim": "#38debb",
+                      "on-error-container": "#ffdad6",
+                      "surface-container-lowest": "#030d25",
+                      "on-tertiary": "#00382d",
+                      "on-secondary-container": "#a5b5db",
+                      "on-secondary-fixed-variant": "#374767",
+                      "secondary-fixed-dim": "#b6c6ed",
+                      "on-primary-fixed-variant": "#39475f",
+                      "primary-container": "#0a192f",
+                      "on-error": "#690005",
+                      "surface-tint": "#b9c7e4"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "desktop-max-width": "1440px",
+                      "base": "8px",
+                      "container-padding": "24px"
+              },
+              "fontFamily": {
+                      "display-lg-mobile": ["Inter"],
+                      "body-md": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "label-md": ["Inter"],
+                      "label-sm": ["Inter"]
+              },
+              "fontSize": {
+                      "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface selection:bg-tertiary selection:text-on-tertiary">
+<div class="flex min-h-screen overflow-hidden">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-[280px] bg-surface-container border-r border-outline-variant flex flex-col py-container-padding z-50" id="sidebar">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">cleaning_services</span>
+</div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">CleanOps Portal</h1>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Enterprise Training</span>
+</div>
+</div>
+<nav class="flex-grow px-4 space-y-1">
+<a class="flex items-center gap-base text-on-surface-variant hover:bg-surface-bright px-4 py-3 rounded-lg transition-transform hover:translate-x-1 duration-200" href="dashboard.html">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-base text-on-surface-variant hover:bg-surface-bright px-4 py-3 rounded-lg transition-transform hover:translate-x-1 duration-200" href="index.html">
+<span class="material-symbols-outlined">videogame_asset</span>
+<span class="font-label-md text-label-md">Simulation</span>
+</a>
+<a class="flex items-center gap-base text-on-surface-variant hover:bg-surface-bright px-4 py-3 rounded-lg transition-transform hover:translate-x-1 duration-200" href="analytics.html">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+<a class="flex items-center gap-base text-on-surface-variant hover:bg-surface-bright px-4 py-3 rounded-lg transition-transform hover:translate-x-1 duration-200" href="certifications.html">
+<span class="material-symbols-outlined">verified</span>
+<span class="font-label-md text-label-md">Certifications</span>
+</a>
+<a class="flex items-center gap-base bg-secondary-container text-on-secondary-container rounded-lg px-4 py-3 transition-transform translate-x-1" href="settings.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+<div class="px-4 mt-auto space-y-1">
+<a href="index.html" class="w-full bg-tertiary text-on-tertiary font-bold py-3 rounded-lg mb-6 shadow-lg shadow-tertiary/10 hover:brightness-110 active:scale-95 transition-all block text-center">
+                    Start Simulation
+                </a>
+<a class="flex items-center gap-base text-on-surface-variant hover:bg-surface-bright px-4 py-3 rounded-lg transition-transform hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md text-label-md">Support</span>
+</a>
+<a class="flex items-center gap-base text-on-surface-variant hover:bg-surface-bright px-4 py-3 rounded-lg transition-transform hover:translate-x-1 duration-200" href="#" onclick="logout()" >
+<span class="material-symbols-outlined text-error">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-[280px] flex-grow p-8 max-w-desktop-max-width mx-auto">
+<!-- Page Header -->
+<header class="mb-10 flex justify-between items-end">
+<div>
+<h2 class="font-display-lg text-display-lg text-on-surface mb-2">Settings</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Manage your academy profile and system preferences.</p>
+</div>
+<div class="flex gap-4">
+<button class="px-6 py-2 rounded-lg border border-outline text-on-surface hover:bg-surface-bright transition-colors font-label-md text-label-md">
+                        Discard Changes
+                    </button>
+<button class="px-6 py-2 rounded-lg bg-tertiary text-on-tertiary font-bold hover:brightness-110 active:scale-95 transition-all font-label-md text-label-md">
+                        Save Preferences
+                    </button>
+</div>
+</header>
+<!-- Bento Grid Settings Sections -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Profile Settings -->
+<section class="col-span-12 lg:col-span-8 bg-surface-container-high rounded-xl p-8 border border-outline-variant shadow-sm">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container">person</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary">Profile Settings</h3>
+</div>
+<div class="flex flex-col md:flex-row gap-10 items-start">
+<div class="relative group cursor-pointer">
+<img alt="Profile Avatar" class="w-32 h-32 rounded-2xl object-cover border-4 border-surface-container-highest shadow-xl transition-all group-hover:brightness-50" data-alt="A professional headshot of a corporate training executive." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDux2VFYQmjDvKbDyXfSi2nE1pWjic7074wkdZdC0YywK0rg-QGi1ScO1Ng6JCc2THExgP6HqKgGmPuDFPJmAW0-Zxt3US64RV8r0W9YDCv3VfaY-5T0SwWFjudVPgOKppFRwqbB7PCe64FCEhjhdW2FbUanV7jFk02bKMum_2xT4YBPuSiCcxKksMwt-qSTaLog2G88zG8y-joJkXQdxreyswHvuUGd9SNBDRkAawlhpbnd4OUFtZ4oCrmSMfr0Ts-ufjfZq3JsKr0"/>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-3xl">photo_camera</span>
+</div>
+</div>
+<div class="flex-grow grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant">Full Name</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-3 text-on-surface focus:border-tertiary outline-none transition-colors" type="text" value="Alexander Sterling"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant">Email Address</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-3 text-on-surface focus:border-tertiary outline-none transition-colors" type="email" value="a.sterling@cleanops.academy"/>
+</div>
+<div class="space-y-2 md:col-span-2">
+<label class="font-label-md text-label-md text-on-surface-variant">Role</label>
+<input class="w-full bg-surface-dim border border-outline-variant rounded-lg px-4 py-3 text-on-surface-variant opacity-70 cursor-not-allowed" disabled="" type="text" value="Operations Lead - Global Simulations"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Subscription Plan -->
+<section class="col-span-12 lg:col-span-4 bg-primary-container rounded-xl p-8 border border-outline-variant relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-9xl">workspace_premium</span>
+</div>
+<div class="relative z-10 h-full flex flex-col">
+<div class="flex items-center justify-between mb-8">
+<h3 class="font-headline-md text-headline-md text-primary">Subscription</h3>
+<span class="px-3 py-1 bg-tertiary/20 text-tertiary text-xs font-bold rounded-full uppercase tracking-widest">Enterprise</span>
+</div>
+<div class="mb-auto">
+<p class="font-label-md text-label-md text-on-primary-container mb-1">Current Plan</p>
+<h4 class="text-3xl font-bold text-on-surface mb-4">Elite Training Tier</h4>
+<ul class="space-y-3">
+<li class="flex items-center gap-2 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-tertiary text-lg">check_circle</span>
+                                    Unlimited Simulations
+                                </li>
+<li class="flex items-center gap-2 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-tertiary text-lg">check_circle</span>
+                                    Advanced Analytics Suite
+                                </li>
+<li class="flex items-center gap-2 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-tertiary text-lg">check_circle</span>
+                                    Custom API Integration
+                                </li>
+</ul>
+</div>
+<button class="mt-8 w-full py-3 border border-outline text-on-surface rounded-lg hover:bg-surface-bright transition-all font-label-md text-label-md">
+                            Manage Billing
+                        </button>
+</div>
+</section>
+<!-- Security Settings -->
+<section class="col-span-12 lg:col-span-6 bg-surface-container-high rounded-xl p-8 border border-outline-variant">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-12 h-12 rounded-full bg-error-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-error">security</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary">Security</h3>
+</div>
+<div class="space-y-6">
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-lg border border-outline-variant">
+<div>
+<p class="font-label-md text-label-md text-on-surface">Two-Factor Authentication</p>
+<p class="text-xs text-on-surface-variant">Add an extra layer of security to your account.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-tertiary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-lg border border-outline-variant">
+<div>
+<p class="font-label-md text-label-md text-on-surface">Password</p>
+<p class="text-xs text-on-surface-variant">Last changed 4 months ago</p>
+</div>
+<button class="text-tertiary font-bold text-sm hover:underline">Change Password</button>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-lg border border-outline-variant">
+<div>
+<p class="font-label-md text-label-md text-on-surface">Active Sessions</p>
+<p class="text-xs text-on-surface-variant">Currently 2 active devices connected.</p>
+</div>
+<button class="text-on-surface-variant font-bold text-sm hover:text-error transition-colors" onclick="logout()">Sign out all</button>
+</div>
+</div>
+</section>
+<!-- Preferences Settings -->
+<section class="col-span-12 lg:col-span-6 bg-surface-container-high rounded-xl p-8 border border-outline-variant">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container">tune</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary">Preferences</h3>
+</div>
+<div class="space-y-6">
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant">System Language</label>
+<div class="grid grid-cols-3 gap-2">
+<button class="py-2 bg-tertiary text-on-tertiary font-bold rounded-lg border border-tertiary text-sm">English</button>
+<button class="py-2 bg-surface-container-lowest text-on-surface rounded-lg border border-outline-variant hover:bg-surface-bright transition-all text-sm">Español</button>
+<button class="py-2 bg-surface-container-lowest text-on-surface rounded-lg border border-outline-variant hover:bg-surface-bright transition-all text-sm">Deutsch</button>
+</div>
+</div>
+<div class="space-y-4 pt-2">
+<h4 class="font-label-md text-label-md text-on-surface border-b border-outline-variant pb-2">Notifications</h4>
+<div class="flex items-center justify-between">
+<span class="text-sm text-on-surface-variant">Training Milestones</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-variant rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-tertiary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-sm text-on-surface-variant">System Updates &amp; Security</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-variant rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-tertiary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-sm text-on-surface-variant">Marketplace &amp; Partner Offers</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-variant rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-tertiary"></div>
+</label>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer Component -->
+<footer class="mt-16 w-full py-12 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-6">
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary mb-2">CleanOps Academy</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 CleanOps Academy. All rights reserved.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-body-md text-body-md" href="#">Investors</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-body-md text-body-md" href="grants.html">Pilot Customers</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-body-md text-body-md" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-body-md text-body-md" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-body-md text-body-md" href="#">Careers</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-body-md text-body-md" href="#">Contact</a>
+</div>
+</footer>
+</main>
+</div>
+<!-- Micro-interaction script -->
+<script>
+        document.querySelectorAll('input, button').forEach(el => {
+            el.addEventListener('mousedown', () => {
+                el.classList.add('scale-95');
+                el.classList.add('opacity-80');
+            });
+            el.addEventListener('mouseup', () => {
+                el.classList.remove('scale-95');
+                el.classList.remove('opacity-80');
+            });
+            el.addEventListener('mouseleave', () => {
+                el.classList.remove('scale-95');
+                el.classList.remove('opacity-80');
+            });
+        });
+
+        // Simple switch simulation for checkboxes
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const parent = this.closest('label');
+                if(this.checked) {
+                    parent.querySelector('div').classList.add('bg-tertiary');
+                } else {
+                    parent.querySelector('div').classList.remove('bg-tertiary');
+                }
+            });
+        });
+    </script>
+
+<script>
+(function() {
+  const page = location.pathname.split('/').pop() || 'index.html';
+  const map = { 'index.html': 'index.html' };
+  document.querySelectorAll('aside nav a[href], aside a[href]').forEach(function(a) {
+    const href = (a.getAttribute('href') || '').split('/').pop();
+    const isActive = href === page;
+    if (isActive) {
+      a.classList.add('bg-secondary-container', 'text-on-secondary-container');
+      a.classList.remove('text-on-surface-variant', 'hover:bg-surface-bright',
+        'dark:text-on-surface-variant', 'group', 'hover:translate-x-1', 'hover:text-tertiary');
+    } else if (!a.classList.contains('bg-tertiary')) {
+      a.classList.remove('bg-secondary-container', 'text-on-secondary-container',
+        'translate-x-1', 'shadow-sm');
+      a.classList.add('text-on-surface-variant', 'hover:bg-surface-bright');
+    }
+  });
+})();
+</script>
+
+<script>
+function logout() {
+  localStorage.removeItem('cleanops_user');
+  localStorage.removeItem('cleanops_session');
+  // Keep attempt history so it shows on next login
+  window.location.href = 'login.html';
+}
+</script>
+</body></html>

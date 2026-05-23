@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hud-overlay {
+            background: linear-gradient(180deg, rgba(25, 27, 35, 0.4) 0%, rgba(25, 27, 35, 0) 25%, rgba(25, 27, 35, 0) 75%, rgba(25, 27, 35, 0.4) 100%);
+        }
+        .sim-container {
+            height: calc(100vh - 64px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#545f71",
+                        "tertiary-fixed-dim": "#ffb59b",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#191b23",
+                        "surface": "#faf8ff",
+                        "secondary-container": "#d8e3f9",
+                        "on-tertiary-fixed-variant": "#812800",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#e7e7f2",
+                        "tertiary-container": "#a33500",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#434654",
+                        "on-tertiary-fixed": "#380d00",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#3c4759",
+                        "on-tertiary-container": "#ffc6b2",
+                        "on-background": "#191b23",
+                        "primary": "#003d9b",
+                        "secondary-fixed": "#d8e3f9",
+                        "surface-dim": "#d9d9e4",
+                        "secondary-fixed-dim": "#bcc7dc",
+                        "tertiary-fixed": "#ffdbcf",
+                        "inverse-primary": "#b2c5ff",
+                        "inverse-on-surface": "#f0f0fb",
+                        "on-secondary-fixed": "#111c2b",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "surface-tint": "#0c56d0",
+                        "on-primary-fixed": "#001848",
+                        "on-primary-container": "#c4d2ff",
+                        "surface-container-highest": "#e1e2ec",
+                        "background": "#faf8ff",
+                        "primary-container": "#0052cc",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#e1e2ec",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "tertiary": "#7b2600",
+                        "outline": "#737685",
+                        "surface-bright": "#faf8ff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#5a6577",
+                        "inverse-surface": "#2e3038",
+                        "surface-container": "#ededf8",
+                        "surface-container-low": "#f3f3fd",
+                        "primary-fixed": "#dae2ff",
+                        "outline-variant": "#c3c6d6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "container-max": "1280px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "hud-data": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "hud-data": ["14px", {"lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-hidden">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline docked full-width top-0 flex justify-between items-center w-full px-margin-desktop h-16 z-50 fixed">
+<div class="flex items-center gap-4">
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-inverse-primary">CleanOps Academy</span>
+</div>
+<div class="flex items-center gap-6">
+<span class="font-label-md text-label-md text-primary dark:text-inverse-primary">System Status: Active</span>
+<div class="flex items-center gap-4 text-on-surface-variant dark:text-surface-variant">
+<span class="material-symbols-outlined cursor-pointer hover:bg-surface-container-high dark:hover:bg-surface-variant p-2 rounded-full transition-colors">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:bg-surface-container-high dark:hover:bg-surface-variant p-2 rounded-full transition-colors">help_center</span>
+<span class="material-symbols-outlined cursor-pointer hover:bg-surface-container-high dark:hover:bg-surface-variant p-2 rounded-full transition-colors">account_circle</span>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<nav class="bg-surface-container dark:bg-inverse-surface border-r border-outline-variant dark:border-outline fixed left-0 top-0 h-full flex flex-col p-4 gap-2 z-40 w-64 pt-20">
+<div class="mb-6 px-2">
+<h2 class="font-headline-md text-headline-md text-primary dark:text-inverse-primary font-black uppercase tracking-tight">Mission Control</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Safety First Protocol</p>
+</div>
+<div class="flex flex-col gap-1 flex-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-label-md text-label-md">Classroom</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="meeting_room">meeting_room</span>
+<span class="font-label-md text-label-md">Bathroom</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="restaurant">restaurant</span>
+<span class="font-label-md text-label-md">Kitchen</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary font-bold rounded-lg scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="straighten">straighten</span>
+<span class="font-label-md text-label-md">Hallway</span>
+</a>
+</div>
+<button class="w-full bg-primary text-on-primary py-4 rounded-xl font-label-md text-label-md uppercase tracking-widest hover:opacity-90 transition-opacity mb-4">
+            Start Simulation
+        </button>
+<div class="pt-4 border-t border-outline-variant flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:text-on-surface" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:text-on-surface" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</nav>
+<!-- Main Content / Simulation Canvas -->
+<main class="ml-64 mt-16 relative overflow-hidden sim-container">
+<!-- 3D Environment Background -->
+<div class="absolute inset-0 z-0">
+<img alt="Modern office hallway simulation environment" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ugRtlbuyxiMkxYl-k78U64E6KdicRWwcCq6-4oaeGpkg7-AYNuiNc6h6Co723-g-xp7ASJFn5L-yd2_YyaTtyOZMG4wrgyzbXsjQFJTYK2ISCN203Pi7SomFDNwOHWNIV3z1feNgl8aPEl3gRjxetWqjF7hLnbpP4TjzoQnjWfyzW3SHvmhL-Z_VP1x06XdL0gV8OcBazYt1D2iUh44XtFrCuY-6Ztzp54qIW7KFubVN5vSEdtNEm12v5c"/>
+<div class="absolute inset-0 hud-overlay"></div>
+</div>
+<!-- Simulation HUD -->
+<div class="absolute inset-0 z-10 p-8 flex flex-col justify-between pointer-events-none">
+<!-- Top HUD Elements -->
+<div class="flex justify-between items-start">
+<!-- Hazard Alert Panel -->
+<div class="bg-black/80 border-l-4 border-error p-4 backdrop-blur-md w-64 pointer-events-auto">
+<div class="flex items-center gap-2 mb-2 text-error">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="font-hud-data text-hud-data uppercase tracking-wider">Hazards Detected</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between text-white">
+<span class="font-label-sm text-label-sm opacity-70">Liquid Spill</span>
+<span class="font-hud-data text-hud-data text-error">CRITICAL</span>
+</div>
+<div class="w-full bg-white/10 h-1.5 rounded-full mt-1 overflow-hidden">
+<div class="bg-error w-3/4 h-full"></div>
+</div>
+</div>
+</div>
+<!-- Timer & Score Panel -->
+<div class="flex gap-4 pointer-events-auto">
+<div class="bg-black/80 p-4 backdrop-blur-md text-center min-w-[120px]">
+<span class="block font-label-sm text-label-sm text-white/60 uppercase">Mission Time</span>
+<span class="block font-hud-data text-[24px] text-white">00:42:15</span>
+</div>
+<div class="bg-black/80 p-4 backdrop-blur-md text-center min-w-[120px] border-b-2 border-primary">
+<span class="block font-label-sm text-label-sm text-white/60 uppercase">Cleanliness</span>
+<span class="block font-hud-data text-[24px] text-primary-fixed-dim">68%</span>
+</div>
+</div>
+</div>
+<!-- Central Simulation Interaction Prompt -->
+<div class="flex flex-col items-center gap-8 pointer-events-none">
+<div class="flex flex-col items-center gap-4 bg-black/40 backdrop-blur-sm p-10 rounded-full border border-white/20 group cursor-pointer pointer-events-auto transition-transform active:scale-95">
+<div class="w-20 h-20 bg-primary text-on-primary rounded-full flex items-center justify-center shadow-2xl">
+<span class="material-symbols-outlined text-4xl" data-icon="add_location">add_location</span>
+</div>
+<span class="font-headline-md text-headline-md text-white drop-shadow-lg text-center">Tap to place Wet Floor Sign</span>
+</div>
+<!-- Spill Target Visual (Asymmetric UI Element) -->
+<div class="relative w-32 h-12 bg-primary/20 border-2 border-primary/40 rounded-full blur-sm animate-pulse"></div>
+</div>
+<!-- Bottom HUD Controls & Inventory -->
+<div class="flex justify-between items-end">
+<div class="bg-black/80 p-4 backdrop-blur-md w-72 pointer-events-auto">
+<h3 class="font-hud-data text-hud-data text-white mb-3 uppercase opacity-60">Objective Checklist</h3>
+<ul class="flex flex-col gap-3">
+<li class="flex items-center gap-3">
+<div class="w-6 h-6 border-2 border-primary rounded flex items-center justify-center bg-primary/20">
+<span class="material-symbols-outlined text-sm text-on-primary-container" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="font-label-md text-label-md text-white">Identify spill perimeter</span>
+</li>
+<li class="flex items-center gap-3">
+<div class="w-6 h-6 border-2 border-primary rounded flex items-center justify-center"></div>
+<span class="font-label-md text-label-md text-white opacity-80">Place warning signage</span>
+</li>
+<li class="flex items-center gap-3">
+<div class="w-6 h-6 border-2 border-white/20 rounded flex items-center justify-center"></div>
+<span class="font-label-md text-label-md text-white/40">Apply absorbent material</span>
+</li>
+</ul>
+</div>
+<!-- Inventory HUD -->
+<div class="flex gap-2 pointer-events-auto">
+<div class="w-20 h-24 bg-primary-container border-2 border-primary flex flex-col items-center justify-center gap-2 rounded-xl">
+<span class="material-symbols-outlined text-3xl text-on-primary-container" data-icon="warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="font-label-sm text-label-sm text-on-primary-container">Signage</span>
+</div>
+<div class="w-20 h-24 bg-black/60 border border-white/20 flex flex-col items-center justify-center gap-2 rounded-xl opacity-60 hover:opacity-100 transition-opacity cursor-pointer">
+<span class="material-symbols-outlined text-3xl text-white" data-icon="mop">mop</span>
+<span class="font-label-sm text-label-sm text-white">Mop</span>
+</div>
+<div class="w-20 h-24 bg-black/60 border border-white/20 flex flex-col items-center justify-center gap-2 rounded-xl opacity-60 hover:opacity-100 transition-opacity cursor-pointer">
+<span class="material-symbols-outlined text-3xl text-white" data-icon="cleaning_services">cleaning_services</span>
+<span class="font-label-sm text-label-sm text-white">Absorbent</span>
+</div>
+<div class="w-20 h-24 bg-black/60 border border-white/20 flex flex-col items-center justify-center gap-2 rounded-xl opacity-60 hover:opacity-100 transition-opacity cursor-pointer">
+<span class="material-symbols-outlined text-3xl text-white" data-icon="back_hand">back_hand</span>
+<span class="font-label-sm text-label-sm text-white">PPE</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Simulation Interaction Area Overlay (Glassmorphism Effect) -->
+<div class="absolute inset-0 pointer-events-none border-[32px] border-transparent transition-all">
+<div class="w-full h-full border border-primary/20 rounded-3xl"></div>
+</div>
+</main>
+</body></html>

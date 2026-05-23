@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CleanOps Academy - Kitchen Floor Cleaning Simulation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#545f71",
+                        "tertiary-fixed-dim": "#ffb59b",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#191b23",
+                        "surface": "#faf8ff",
+                        "secondary-container": "#d8e3f9",
+                        "on-tertiary-fixed-variant": "#812800",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#e7e7f2",
+                        "tertiary-container": "#a33500",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#434654",
+                        "on-tertiary-fixed": "#380d00",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#3c4759",
+                        "on-tertiary-container": "#ffc6b2",
+                        "on-background": "#191b23",
+                        "primary": "#003d9b",
+                        "secondary-fixed": "#d8e3f9",
+                        "surface-dim": "#d9d9e4",
+                        "secondary-fixed-dim": "#bcc7dc",
+                        "tertiary-fixed": "#ffdbcf",
+                        "inverse-primary": "#b2c5ff",
+                        "inverse-on-surface": "#f0f0fb",
+                        "on-secondary-fixed": "#111c2b",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "surface-tint": "#0c56d0",
+                        "on-primary-fixed": "#001848",
+                        "on-primary-container": "#c4d2ff",
+                        "surface-container-highest": "#e1e2ec",
+                        "background": "#faf8ff",
+                        "primary-container": "#0052cc",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#e1e2ec",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "tertiary": "#7b2600",
+                        "outline": "#737685",
+                        "surface-bright": "#faf8ff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#5a6577",
+                        "inverse-surface": "#2e3038",
+                        "surface-container": "#ededf8",
+                        "surface-container-low": "#f3f3fd",
+                        "primary-fixed": "#dae2ff",
+                        "outline-variant": "#c3c6d6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "container-max": "1280px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "hud-data": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "hud-data": ["14px", {"lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hud-glass {
+            background: rgba(25, 27, 35, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-desktop h-16 bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline">
+<div class="flex items-center gap-4">
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-inverse-primary">CleanOps Academy</span>
+</div>
+<div class="flex items-center gap-6">
+<span class="font-label-md text-label-md text-primary dark:text-inverse-primary uppercase tracking-wider">System Status: Active</span>
+<div class="flex items-center gap-4 text-on-surface-variant dark:text-surface-variant">
+<span class="material-symbols-outlined cursor-pointer hover:bg-surface-container-high transition-colors p-2 rounded-full" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:bg-surface-container-high transition-colors p-2 rounded-full" data-icon="help_center">help_center</span>
+<span class="material-symbols-outlined cursor-pointer hover:bg-surface-container-high transition-colors p-2 rounded-full" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-full flex flex-col p-4 gap-2 z-40 bg-surface-container dark:bg-inverse-surface border-r border-outline-variant dark:border-outline w-64 pt-20">
+<div class="mb-6 px-2">
+<h2 class="font-headline-md text-primary dark:text-inverse-primary font-black">Mission Control</h2>
+<p class="text-label-md font-label-md text-secondary opacity-80">Safety First Protocol</p>
+</div>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-label-md text-label-md">Classroom</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="meeting_room">meeting_room</span>
+<span class="font-label-md text-label-md">Bathroom</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary font-bold rounded-lg active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="restaurant" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+<span class="font-label-md text-label-md">Kitchen</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="straighten">straighten</span>
+<span class="font-label-md text-label-md">Hallway</span>
+</a>
+</div>
+<div class="mt-auto border-t border-outline-variant pt-4 flex flex-col gap-1">
+<button class="mb-4 bg-primary text-white py-3 px-4 rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors uppercase tracking-widest">Start Simulation</button>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Canvas (Simulation View) -->
+<main class="ml-64 mt-16 h-[calc(100vh-64px)] relative overflow-hidden bg-black">
+<!-- 3D Simulation Environment Placeholder -->
+<div class="absolute inset-0 w-full h-full object-cover">
+<img alt="Commercial Kitchen Simulation" class="w-full h-full object-cover opacity-90" src="https://lh3.googleusercontent.com/aida/ADBb0uhqEyrv1qvn6l4BzBmzdHCqTXnttaddWLM12GTPw956WfdlxnFxwiiWuE_FboR4Y27yXU2BINF8kdrhgU6NiEloNoCyXq-GYUjzk6xbaKBtF-_CKqo3VBDLeklqEN6L5G0i69M9KZCZBuCeuAE1n6SYqSWEFfwqikSxaXDvNpDg7qACcy06sP83txfirv8N1kg9jGqxbaCTrp3dF290tZivMMHq9Uu3zU9_mJAhzBQje6pMdWJ4QSaq0F9_"/>
+</div>
+<!-- HUD Layer: Safe Zone 32px margins -->
+<div class="absolute inset-0 p-8 flex flex-col justify-between pointer-events-none">
+<!-- Top HUD: Progress and Status -->
+<div class="flex justify-between items-start">
+<div class="hud-glass p-4 rounded-lg pointer-events-auto min-w-[240px]">
+<div class="flex justify-between items-center mb-2">
+<span class="font-hud-data text-white uppercase text-xs opacity-70">Cleanliness</span>
+<span class="font-hud-data text-primary-fixed-dim text-lg">78%</span>
+</div>
+<div class="w-full h-2 bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[78%] transition-all duration-1000 shadow-[0_0_8px_rgba(0,82,204,0.6)]"></div>
+</div>
+</div>
+<div class="hud-glass px-6 py-2 rounded-lg pointer-events-auto">
+<div class="flex gap-4 font-hud-data text-white text-xs items-center">
+<span class="border-r border-white/20 pr-4">MODULE: SANITATION &amp; PREP</span>
+<span class="border-r border-white/20 pr-4">TIME: 00:05:22</span>
+<span class="text-green-400 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">fiber_manual_record</span>
+                            STATUS: ACTIVE
+                        </span>
+</div>
+</div>
+</div>
+<!-- Bottom HUD: Inventory and Objectives -->
+<div class="flex justify-between items-end">
+<!-- Inventory Panel -->
+<div class="hud-glass p-4 rounded-lg pointer-events-auto w-64">
+<h3 class="font-hud-data text-white text-xs uppercase mb-3 opacity-60 border-b border-white/10 pb-1">Inventory</h3>
+<div class="grid grid-cols-3 gap-2">
+<div class="flex flex-col items-center gap-1 p-2 bg-white/5 rounded border border-white/20 hover:bg-white/10 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-white" data-icon="mop">mop</span>
+<span class="font-hud-data text-[10px] text-white">Mop</span>
+</div>
+<div class="flex flex-col items-center gap-1 p-2 bg-primary/40 rounded border border-primary-fixed-dim/50 cursor-pointer ring-1 ring-primary">
+<span class="material-symbols-outlined text-white" data-icon="broom">brush</span>
+<span class="font-hud-data text-[10px] text-white">Broom</span>
+</div>
+<div class="flex flex-col items-center gap-1 p-2 bg-white/5 rounded border border-white/20 opacity-50">
+<span class="material-symbols-outlined text-white" data-icon="bucket">cleaning_bucket</span>
+<span class="font-hud-data text-[10px] text-white">Bucket</span>
+</div>
+</div>
+</div>
+<!-- Current Objective Panel -->
+<div class="hud-glass p-5 rounded-lg pointer-events-auto w-80">
+<h3 class="font-hud-data text-white text-xs uppercase mb-4 opacity-60 flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]" data-icon="task_alt">task_alt</span>
+                        Current Objective
+                    </h3>
+<div class="space-y-3">
+<div class="flex items-center gap-3 group">
+<div class="w-6 h-6 border-2 border-primary-container bg-primary-container/20 rounded-md flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[18px]" data-icon="check">check</span>
+</div>
+<span class="font-body-md text-white/90 text-sm line-through opacity-50">Clear debris from floor surfaces</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-6 h-6 border-2 border-primary-fixed-dim rounded-md bg-white/5"></div>
+<span class="font-body-md text-white text-sm">Sweep under preparation counters</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-6 h-6 border-2 border-white/20 rounded-md bg-white/5"></div>
+<span class="font-body-md text-white/60 text-sm">Mop with industrial degreaser</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-6 h-6 border-2 border-white/20 rounded-md bg-white/5"></div>
+<span class="font-body-md text-white/60 text-sm">Inspect drainage for blockages</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Center Reticle (Implicit Simulation Interaction) -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-40">
+<div class="w-8 h-8 border border-white/40 rounded-full flex items-center justify-center">
+<div class="w-1 h-1 bg-white rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Tool Interaction Overlay (Lower Third) -->
+<div class="absolute bottom-12 left-1/2 -translate-x-1/2 hud-glass py-2 px-8 rounded-full border border-primary/30 flex items-center gap-4 text-white font-hud-data text-xs animate-pulse">
+<span class="text-primary-fixed-dim">PROXIMITY ALERT:</span> USE [LEFT CLICK] TO START SWEEPING
+        </div>
+</main>
+<!-- Contextual FAB (Suppressed as per rules for Simulation Detail pages, but provided here as visual anchor for the training intent if needed for module interaction) -->
+<!-- Suppression logic: Since this is a "Mission" or "Task-Focused" sub-page, the FAB is omitted to prioritize the HUD experience. -->
+</body></html>

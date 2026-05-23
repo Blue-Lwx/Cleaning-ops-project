@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#5ffbd6",
+                    "surface-dim": "#08132a",
+                    "surface": "#08132a",
+                    "on-primary-container": "#74829d",
+                    "primary": "#b9c7e4",
+                    "secondary-container": "#374767",
+                    "on-background": "#d9e2ff",
+                    "on-surface-variant": "#c5c6cd",
+                    "surface-container-highest": "#2a344d",
+                    "outline-variant": "#44474d",
+                    "on-surface": "#d9e2ff",
+                    "tertiary": "#38debb",
+                    "error-container": "#93000a",
+                    "background": "#08132a",
+                    "on-secondary": "#20304f",
+                    "outline": "#8f9097",
+                    "on-secondary-fixed": "#091b39",
+                    "on-primary-fixed": "#0d1c32",
+                    "primary-fixed-dim": "#b9c7e4",
+                    "secondary": "#b6c6ed",
+                    "tertiary-container": "#001e17",
+                    "inverse-surface": "#d9e2ff",
+                    "on-tertiary-fixed": "#002019",
+                    "on-tertiary-container": "#00937a",
+                    "inverse-on-surface": "#263049",
+                    "error": "#ffb4ab",
+                    "surface-tint": "#b9c7e4",
+                    "on-secondary-container": "#a5b5db",
+                    "surface-container-lowest": "#030d25",
+                    "on-tertiary": "#00382d",
+                    "on-secondary-fixed-variant": "#374767",
+                    "on-primary-fixed-variant": "#39475f",
+                    "secondary-fixed-dim": "#b6c6ed",
+                    "primary-container": "#0a192f",
+                    "on-error": "#690005",
+                    "on-error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#38debb",
+                    "primary-fixed": "#d6e3ff",
+                    "on-tertiary-fixed-variant": "#005142",
+                    "surface-container-high": "#1f2942",
+                    "surface-container": "#151f37",
+                    "surface-bright": "#2f3952",
+                    "surface-container-low": "#101b33",
+                    "inverse-primary": "#515f78",
+                    "secondary-fixed": "#d8e2ff",
+                    "surface-variant": "#2a344d",
+                    "on-primary": "#233148"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "gutter": "16px",
+                    "desktop-max-width": "1440px",
+                    "container-padding": "24px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "display-lg-mobile": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(17, 34, 64, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(35, 53, 84, 0.5);
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .progress-glow {
+            box-shadow: 0 0 15px rgba(56, 222, 187, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-tertiary selection:text-surface">
+<!-- Top Navigation -->
+<nav class="fixed top-0 left-0 w-full h-20 bg-surface-container-low shadow-sm z-50">
+<div class="flex justify-between items-center w-full px-gutter max-w-desktop-max-width mx-auto h-full">
+<a class="font-headline-md text-headline-md font-bold text-on-surface" href="home.html">CleanOps Academy</a>
+<div class="hidden md:flex gap-8">
+<a class="text-on-surface-variant hover:text-tertiary-fixed transition-colors duration-200 font-label-md text-label-md" href="product.html">Modules</a>
+<a class="text-on-surface-variant hover:text-tertiary-fixed transition-colors duration-200 font-label-md text-label-md" href="pricing.html">Curriculum</a>
+<a class="text-on-surface-variant hover:text-tertiary-fixed transition-colors duration-200 font-label-md text-label-md" href="grants.html">Pilot Program</a>
+<a class="text-on-surface-variant hover:text-tertiary-fixed transition-colors duration-200 font-label-md text-label-md" href="#">About Us</a>
+</div>
+<div class="flex items-center gap-4">
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-label-md text-label-md" href="login.html">Login</a>
+<a class="px-6 py-2 bg-tertiary text-on-tertiary font-bold rounded-lg hover:opacity-90 active:scale-95 transition-all font-label-md text-label-md" href="request-demo.html">Request a Demo</a>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-20 px-gutter max-w-desktop-max-width mx-auto">
+<!-- Hero Section -->
+<header class="mb-20">
+<div class="flex flex-col md:flex-row gap-12 items-center">
+<div class="md:w-3/5">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm mb-6 border border-on-tertiary-container/20">
+<span class="material-symbols-outlined text-[16px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+                        ALBERTA INNOVATES PARTNERSHIP
+                    </div>
+<h1 class="font-display-lg text-display-lg mb-6 leading-tight">
+                        Revolutionizing Workforce <span class="text-tertiary">Training through Simulation</span>.
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-2xl">
+                        CleanOps Academy is developing a browser-based 2D/3D simulation training platform for commercial cleaning operations, validating reduced onboarding time and improved consistency.
+                    </p>
+<div class="flex gap-4">
+<button class="px-8 py-4 bg-tertiary text-on-tertiary font-bold rounded-lg flex items-center gap-2 hover:shadow-[0_0_20px_rgba(56,222,187,0.4)] transition-all">
+                            View Innovation Summary
+                            <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="px-8 py-4 border border-outline-variant rounded-lg text-on-surface hover:bg-surface-bright transition-all">
+                            Download Roadmap
+                        </button>
+</div>
+</div>
+<div class="md:w-2/5 w-full">
+<div class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-tertiary to-primary opacity-20 blur group-hover:opacity-30 transition duration-1000"></div>
+<img alt="Simulation Training HUD" class="relative rounded-xl border border-outline-variant shadow-2xl grayscale hover:grayscale-0 transition-all duration-700" data-alt="A professional technician using a high-fidelity 3D simulation interface on a tablet device in a modern workspace. The lighting is cold and clinical with deep navy and cyan highlights, reflecting a high-tech laboratory or industrial training environment. The scene emphasizes precision and institutional trust through its sharp focus and clean, minimalist composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNt5X6xGIWTa8S-oGaqrDZeN-8aWP_kPqNu3HTALj_gKf1LckomFAgiiBKJzhkbQVvt_oAIkqlp0LY08Mlf1G8RuvNrTiiWmiqkivndl_AUeZP-v5p4HQuegDej8iGqdUdrez90kPXYYWGR7QD_WVmWerAgIp5FiEhfbOYGOj3pRNFjIJLxZnZ2mfYlxcAw-kYlRi6uW4wgD-i4LS_lE4tD7Sf7mP3Cv2KfohgFJYHa-hdmy5SmRypx6q5Q-LP5cUPUzPXYP2r_nZO"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Bento Grid: Core Innovation Pillars -->
+<section class="mb-24">
+<h2 class="font-headline-md text-headline-md mb-8 flex items-center gap-3">
+<span class="w-12 h-[2px] bg-tertiary"></span>
+                Strategic Grant Focus
+            </h2>
+<div class="bento-grid">
+<!-- Market Opportunity -->
+<div class="col-span-12 md:col-span-8 glass-card p-8 rounded-xl flex flex-col justify-between group overflow-hidden">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-tertiary mb-4 text-[40px]" data-icon="explore">explore</span>
+<h3 class="font-headline-md text-headline-md mb-4">Alberta Market Opportunity</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 max-w-md">
+                            Bridging the skills gap in Alberta's growing commercial real estate and industrial maintenance sectors through local workforce acceleration.
+                        </p>
+<ul class="grid grid-cols-2 gap-4">
+<li class="flex items-center gap-2 text-label-md font-label-md">
+<span class="material-symbols-outlined text-tertiary text-[18px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                22% Onboarding Efficiency
+                            </li>
+<li class="flex items-center gap-2 text-label-md font-label-md">
+<span class="material-symbols-outlined text-tertiary text-[18px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                $2.4B Regional TAM
+                            </li>
+</ul>
+</div>
+<div class="absolute bottom-0 right-0 w-64 h-64 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[300px]" data-icon="location_on">location_on</span>
+</div>
+</div>
+<!-- Simulation HUD Element -->
+<div class="col-span-12 md:col-span-4 bg-primary-container p-8 rounded-xl border border-outline-variant flex flex-col justify-center items-center text-center">
+<div class="w-24 h-24 rounded-full border-4 border-tertiary border-t-transparent animate-spin-slow mb-6 flex items-center justify-center">
+<span class="text-tertiary font-bold text-xl">85%</span>
+</div>
+<h4 class="font-label-md text-label-md text-primary mb-2">Simulated Retention</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Compared to 15% via video legacy training methods.</p>
+</div>
+<!-- Roadmap Milestone 1 -->
+<div class="col-span-12 md:col-span-4 glass-card p-8 rounded-xl border-l-4 border-tertiary">
+<div class="text-tertiary font-label-md text-label-md mb-2">PHASE 01: Q3 2024</div>
+<h4 class="font-headline-md text-headline-md mb-4">MVP Development</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Browser-based 2D core engine targeting high-frequency tasks in clinical environments.</p>
+</div>
+<!-- Roadmap Milestone 2 -->
+<div class="col-span-12 md:col-span-4 glass-card p-8 rounded-xl">
+<div class="text-on-surface-variant font-label-md text-label-md mb-2">PHASE 02: Q1 2025</div>
+<h4 class="font-headline-md text-headline-md mb-4">Pilot Validation</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Field testing with 3 tier-1 property management groups in Edmonton and Calgary.</p>
+</div>
+<!-- Roadmap Milestone 3 -->
+<div class="col-span-12 md:col-span-4 glass-card p-8 rounded-xl">
+<div class="text-on-surface-variant font-label-md text-label-md mb-2">PHASE 03: Q3 2025</div>
+<h4 class="font-headline-md text-headline-md mb-4">3D Scaling</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Integration of WebGL 3D environments for complex equipment simulations.</p>
+</div>
+</div>
+</section>
+<!-- Technology & Implementation Split -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
+<div>
+<h2 class="font-headline-md text-headline-md mb-6">Commercialization Plan</h2>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-12 h-12 bg-secondary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary" data-icon="hub">hub</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md mb-1">Ecosystem Integration</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">SaaS model designed to integrate with existing Enterprise Resource Planning (ERP) systems.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-12 h-12 bg-secondary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary" data-icon="verified">verified</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md mb-1">Standardized Certification</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Validating skills through AI-tracked performance metrics for provincial standards.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-12 h-12 bg-secondary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary" data-icon="groups">groups</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md mb-1">Scaling Workforce</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Focusing on high-churn sectors to reduce retraining costs by an estimated 40%.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container rounded-2xl p-1 overflow-hidden border border-outline-variant shadow-xl">
+<div class="p-6 bg-surface-container-highest flex justify-between items-center rounded-t-2xl">
+<div class="flex gap-2">
+<div class="w-3 h-3 rounded-full bg-error"></div>
+<div class="w-3 h-3 rounded-full bg-tertiary"></div>
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">SIM_ENGINE_V1.04</div>
+</div>
+<div class="p-8 space-y-6">
+<div class="flex justify-between items-center">
+<span class="font-label-md text-label-md">Onboarding Latency</span>
+<span class="text-tertiary">-34%</span>
+</div>
+<div class="w-full h-2 bg-background rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-[76%] progress-glow"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-label-md text-label-md">Procedural Accuracy</span>
+<span class="text-tertiary">98.2%</span>
+</div>
+<div class="w-full h-2 bg-background rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-[98%] progress-glow"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-label-md text-label-md">System Stability</span>
+<span class="text-primary">Operational</span>
+</div>
+<div class="pt-4 border-t border-outline-variant flex gap-4">
+<div class="px-3 py-1 bg-surface-bright rounded text-label-sm font-label-sm">B2B ENTERPRISE</div>
+<div class="px-3 py-1 bg-surface-bright rounded text-label-sm font-label-sm">WEBGL READY</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="bg-gradient-to-br from-secondary-container to-surface-container p-12 rounded-3xl text-center relative overflow-hidden">
+<div class="relative z-10">
+<h2 class="font-display-lg text-display-lg mb-4">Ready to Transform Cleaning Operations?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-2xl mx-auto">
+                    Join our Pilot Program and help us shape the future of industrial training in Alberta.
+                </p>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<a class="px-10 py-5 bg-tertiary text-on-tertiary font-bold rounded-xl text-lg hover:scale-105 transition-transform" href="request-demo.html">Apply for Pilot Access</a>
+<button class="px-10 py-5 border border-tertiary text-tertiary font-bold rounded-xl text-lg hover:bg-tertiary/10 transition-colors">Contact Investment Team</button>
+</div>
+</div>
+<!-- Decorative Background Element -->
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-tertiary/10 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-24 -left-24 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-gutter max-w-desktop-max-width mx-auto flex flex-col md:flex-row justify-between border-t border-outline-variant bg-surface-container-lowest">
+<div class="mb-8 md:mb-0">
+<div class="font-headline-md text-headline-md font-bold text-primary mb-2">CleanOps Academy</div>
+<p class="text-on-surface-variant max-w-xs font-body-md text-body-md">Advanced simulation training for the modern workforce.</p>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-8">
+<div class="flex flex-col gap-3">
+<span class="text-on-surface font-label-md text-label-md mb-2">Company</span>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-body-md text-body-md" href="#">Investors</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-body-md text-body-md" href="#">Careers</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="text-on-surface font-label-md text-label-md mb-2">Support</span>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-body-md text-body-md" href="#">Contact</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-body-md text-body-md" href="#">Terms</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="text-on-surface font-label-md text-label-md mb-2">Social</span>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-body-md text-body-md" href="#">LinkedIn</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-body-md text-body-md" href="#">Twitter</a>
+</div>
+</div>
+</footer>
+<div class="w-full py-4 text-center text-on-surface-variant font-label-sm text-label-sm border-t border-outline-variant bg-surface-container-lowest">
+        © 2024 CleanOps Academy. All rights reserved.
+    </div>
+<script>
+        // Micro-interactions for the simulation cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+                card.style.transition = 'all 0.3s ease';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+
+<script>
+(function() {
+  var page = location.pathname.split('/').pop() || 'home.html';
+  // Only target the 4 main nav items inside the center nav group
+  var navGroup = document.querySelector('div.hidden.md\\:flex');
+  if (!navGroup) return;
+  var links = Array.from(navGroup.querySelectorAll('a[href]'));
+  links.forEach(function(a) {
+    var href = (a.getAttribute('href') || '').split('/').pop();
+    // Reset to inactive state
+    a.classList.remove('text-tertiary', 'border-b-2', 'border-tertiary', 'pb-0.5', 'pb-1', 'font-bold');
+    a.classList.add('text-on-surface-variant');
+    // Apply active state if this link matches current page
+    if (href && href !== '#' && href === page) {
+      a.classList.remove('text-on-surface-variant', 'hover:text-tertiary-fixed');
+      a.classList.add('text-tertiary', 'border-b-2', 'border-tertiary', 'pb-0.5');
+    }
+  });
+})();
+</script>
+
+</body></html>

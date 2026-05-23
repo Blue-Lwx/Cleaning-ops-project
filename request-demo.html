@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#5ffbd6",
+                    "surface-dim": "#08132a",
+                    "surface": "#08132a",
+                    "on-primary-container": "#74829d",
+                    "primary": "#b9c7e4",
+                    "secondary-container": "#374767",
+                    "on-background": "#d9e2ff",
+                    "on-surface-variant": "#c5c6cd",
+                    "surface-container-highest": "#2a344d",
+                    "outline-variant": "#44474d",
+                    "on-surface": "#d9e2ff",
+                    "tertiary": "#38debb",
+                    "error-container": "#93000a",
+                    "background": "#08132a",
+                    "on-secondary": "#20304f",
+                    "outline": "#8f9097",
+                    "on-secondary-fixed": "#091b39",
+                    "on-primary-fixed": "#0d1c32",
+                    "primary-fixed-dim": "#b9c7e4",
+                    "secondary": "#b6c6ed",
+                    "tertiary-container": "#001e17",
+                    "inverse-surface": "#d9e2ff",
+                    "on-tertiary-fixed": "#002019",
+                    "on-tertiary-container": "#00937a",
+                    "inverse-on-surface": "#263049",
+                    "error": "#ffb4ab",
+                    "surface-tint": "#b9c7e4",
+                    "on-secondary-container": "#a5b5db",
+                    "surface-container-lowest": "#030d25",
+                    "on-tertiary": "#00382d",
+                    "on-secondary-fixed-variant": "#374767",
+                    "on-primary-fixed-variant": "#39475f",
+                    "secondary-fixed-dim": "#b6c6ed",
+                    "primary-container": "#0a192f",
+                    "on-error": "#690005",
+                    "on-error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#38debb",
+                    "primary-fixed": "#d6e3ff",
+                    "on-tertiary-fixed-variant": "#005142",
+                    "surface-container-high": "#1f2942",
+                    "surface-container": "#151f37",
+                    "surface-bright": "#2f3952",
+                    "surface-container-low": "#101b33",
+                    "inverse-primary": "#515f78",
+                    "secondary-fixed": "#d8e2ff",
+                    "surface-variant": "#2a344d",
+                    "on-primary": "#233148"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "gutter": "16px",
+                    "desktop-max-width": "1440px",
+                    "container-padding": "24px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "display-lg-mobile": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #08132a;
+            color: #d9e2ff;
+        }
+        .form-input-focus:focus {
+            border-color: #38debb;
+            box-shadow: 0 0 0 2px rgba(56, 222, 187, 0.2);
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md bg-surface">
+<!-- Top Navigation Bar -->
+<header class="bg-surface-container-low dark:bg-surface-container-low shadow-sm fixed top-0 w-full z-50 h-20">
+<nav class="flex justify-between items-center w-full px-gutter max-w-desktop-max-width mx-auto h-full">
+<a class="font-headline-md text-headline-md font-bold text-on-surface dark:text-on-surface" href="home.html">
+                CleanOps Academy
+            </a>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-tertiary-fixed transition-colors duration-200" href="product.html">Modules</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-tertiary-fixed transition-colors duration-200" href="pricing.html">Curriculum</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-tertiary-fixed transition-colors duration-200" href="grants.html">Pilot Program</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-tertiary-fixed transition-colors duration-200" href="#">About Us</a>
+</div>
+<div class="flex items-center gap-4">
+<a class="hidden lg:block text-on-surface-variant font-label-md text-label-md hover:text-tertiary-fixed" href="login.html">Login</a>
+<a class="bg-tertiary text-on-tertiary-container font-label-md text-label-md px-6 py-2.5 rounded-lg font-bold hover:bg-tertiary-fixed transition-all active:scale-95" href="request-demo.html">
+                    Request a Demo
+                </a>
+</div>
+</nav>
+</header>
+<main class="pt-32 pb-24 px-gutter max-w-desktop-max-width mx-auto">
+<div class="flex flex-col lg:flex-row gap-16">
+<!-- Left Column: Form -->
+<div class="flex-1">
+<div class="mb-10">
+<h1 class="font-display-lg text-display-lg text-on-surface mb-4">Request a Demo</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                        Experience the future of enterprise training with our high-stakes simulation platform. Fill out the form below and an operations expert will reach out within 24 hours.
+                    </p>
+</div>
+<form class="space-y-6 bg-surface-container p-8 lg:p-10 rounded-xl border border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-primary">Name</label>
+<input class="w-full bg-surface-container-low border border-outline-variant text-on-surface rounded-lg px-4 py-3 form-input-focus transition-all outline-none" placeholder="John Doe" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-primary">Company Name</label>
+<input class="w-full bg-surface-container-low border border-outline-variant text-on-surface rounded-lg px-4 py-3 form-input-focus transition-all outline-none" placeholder="Acme Logistics" type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-primary">Email</label>
+<input class="w-full bg-surface-container-low border border-outline-variant text-on-surface rounded-lg px-4 py-3 form-input-focus transition-all outline-none" placeholder="john@company.com" type="email"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-primary">Phone</label>
+<input class="w-full bg-surface-container-low border border-outline-variant text-on-surface rounded-lg px-4 py-3 form-input-focus transition-all outline-none" placeholder="+1 (555) 000-0000" type="tel"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-primary">Industry</label>
+<select class="w-full bg-surface-container-low border border-outline-variant text-on-surface rounded-lg px-4 py-3 form-input-focus transition-all outline-none appearance-none">
+<option>Logistics &amp; Supply Chain</option>
+<option>Manufacturing</option>
+<option>Facility Management</option>
+<option>Energy &amp; Utilities</option>
+<option>Other</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-primary">Number of Workers</label>
+<select class="w-full bg-surface-container-low border border-outline-variant text-on-surface rounded-lg px-4 py-3 form-input-focus transition-all outline-none appearance-none">
+<option>1-100</option>
+<option>101-500</option>
+<option>501-2000</option>
+<option>2000+</option>
+</select>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-primary">Message</label>
+<textarea class="w-full bg-surface-container-low border border-outline-variant text-on-surface rounded-lg px-4 py-3 form-input-focus transition-all outline-none resize-none" placeholder="How can CleanOps Academy help your team?" rows="4"></textarea>
+</div>
+<button class="w-full md:w-auto px-10 py-4 bg-tertiary text-on-tertiary-container font-label-md text-label-md rounded-lg font-bold hover:bg-tertiary-fixed transition-all active:scale-[0.98] shadow-lg" type="submit">
+                        Submit Request
+                    </button>
+</form>
+</div>
+<!-- Right Column: Why Choose Us -->
+<aside class="w-full lg:w-[400px] space-y-8">
+<div class="bg-surface-container-high p-8 rounded-xl border border-outline-variant relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-tertiary opacity-5 rounded-full -mr-16 -mt-16"></div>
+<h3 class="font-headline-md text-headline-md text-tertiary mb-6">Why CleanOps?</h3>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="bg-tertiary-container p-2 rounded-lg h-fit">
+<span class="material-symbols-outlined text-tertiary" data-icon="videogame_asset">videogame_asset</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Simulation-First Learning</p>
+<p class="text-on-surface-variant font-label-sm text-label-sm">Increase retention by 80% with hands-on digital simulations.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="bg-tertiary-container p-2 rounded-lg h-fit">
+<span class="material-symbols-outlined text-tertiary" data-icon="leaderboard" data-weight="fill" style="font-variation-settings: 'FILL' 1;">leaderboard</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Enterprise Analytics</p>
+<p class="text-on-surface-variant font-label-sm text-label-sm">Track workforce compliance and skill gaps in real-time.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="bg-tertiary-container p-2 rounded-lg h-fit">
+<span class="material-symbols-outlined text-tertiary" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Certified Outcomes</p>
+<p class="text-on-surface-variant font-label-sm text-label-sm">Industry-standard certifications for Every module.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Testimonial / Visual Card -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden group">
+<img class="w-full h-48 object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A cinematic, wide-angle photo of a professional operations manager wearing a VR headset in a sleek, dark-toned control room. The environment is illuminated by ambient blue light from multiple dashboard monitors showing complex logistics data. The mood is high-stakes and technological, mirroring a premium enterprise training simulation environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEfKGFaAXG2Sog2itIIK9b2B2wKZZLycpyT6xHE1KvabgGpsdksaJkC2DWDgAm171FiSe4-T4pBHN5Pvl4Jm3krXwGr-bbHRJFhaYfLg7GFskyErTiJeV9C3yrY814yqrSR1WaAZzQIcQgCnmhBGmDBqt8nc2vrA4qWa96pq0IhOS7L2VMq4skGo_DJi-0JZ26jgOzxe4IPw0BTkXEqu2iXdCKZZ8lJCSCfyb-zX-twNoVfbbIdQ-ohnE0VN8A_7tkDu_3W55okYOJ"/>
+<div class="p-6">
+<p class="italic text-on-surface-variant font-body-md mb-4">"CleanOps transformed our onboarding process from 4 weeks to 5 days using their immersive pilot program."</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container"></div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Director of Operations</p>
+<p class="text-label-sm text-on-secondary-container">Fortune 500 Logistics</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Simple Contact Info -->
+<div class="p-4 space-y-4">
+<p class="font-label-md text-label-md text-primary uppercase tracking-widest">Connect With Us</p>
+<div class="space-y-2">
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="mail">mail</span>
+<span>hello@cleanops.academy</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+<span>San Francisco, CA • London, UK</span>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-gutter max-w-desktop-max-width mx-auto flex flex-col md:flex-row justify-between bg-surface-container-lowest border-t border-outline-variant">
+<div class="mb-8 md:mb-0">
+<div class="font-headline-md text-headline-md font-bold text-primary mb-4">CleanOps Academy</div>
+<p class="text-on-surface-variant max-w-xs font-body-md">Precision training for the modern workforce. Institutional trust meets simulation technology.</p>
+</div>
+<div class="grid grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="flex flex-col gap-2">
+<p class="font-label-md text-label-md text-on-surface mb-2">Company</p>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Investors</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Careers</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">About Us</a>
+</div>
+<div class="flex flex-col gap-2">
+<p class="font-label-md text-label-md text-on-surface mb-2">Support</p>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Contact</a>
+</div>
+</div>
+<div class="mt-12 md:mt-0 md:self-end text-on-surface-variant font-label-sm">
+            © 2024 CleanOps Academy. All rights reserved.
+        </div>
+</footer>
+<script>
+        // Micro-interactions for form submission
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = form.querySelector('button[type="submit"]');
+            const originalText = btn.innerText;
+            btn.innerText = 'Sending Request...';
+            btn.disabled = true;
+            btn.classList.add('opacity-50');
+
+            setTimeout(() => {
+                btn.innerText = 'Request Sent!';
+                btn.classList.replace('bg-tertiary', 'bg-emerald-500');
+                btn.classList.remove('opacity-50');
+
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.classList.replace('bg-emerald-500', 'bg-tertiary');
+                    btn.disabled = false;
+                    form.reset();
+                }, 3000);
+            }, 1500);
+        });
+
+        // Atmospheric parallax effect on the "Why Choose Us" cards
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.bg-surface-container-high');
+            const mouseX = (e.clientX / window.innerWidth - 0.5) * 10;
+            const mouseY = (e.clientY / window.innerHeight - 0.5) * 10;
+
+            cards.forEach(card => {
+                card.style.transform = `perspective(1000px) rotateX(${mouseY * -1}deg) rotateY(${mouseX}deg)`;
+            });
+        });
+    </script>
+
+<script>
+(function() {
+  var page = location.pathname.split('/').pop() || 'home.html';
+  // Only target the 4 main nav items inside the center nav group
+  var navGroup = document.querySelector('div.hidden.md\\:flex');
+  if (!navGroup) return;
+  var links = Array.from(navGroup.querySelectorAll('a[href]'));
+  links.forEach(function(a) {
+    var href = (a.getAttribute('href') || '').split('/').pop();
+    // Reset to inactive state
+    a.classList.remove('text-tertiary', 'border-b-2', 'border-tertiary', 'pb-0.5', 'pb-1', 'font-bold');
+    a.classList.add('text-on-surface-variant');
+    // Apply active state if this link matches current page
+    if (href && href !== '#' && href === page) {
+      a.classList.remove('text-on-surface-variant', 'hover:text-tertiary-fixed');
+      a.classList.add('text-tertiary', 'border-b-2', 'border-tertiary', 'pb-0.5');
+    }
+  });
+})();
+</script>
+
+</body></html>
